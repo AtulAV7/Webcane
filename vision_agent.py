@@ -227,7 +227,7 @@ class VisionAgent:
                 [image_file, prompt],
                 generation_config=genai.types.GenerationConfig(
                     temperature=0.1,
-                    max_output_tokens=256,
+                    max_output_tokens=512,
                 )
             )
             
@@ -308,40 +308,43 @@ class VisionAgent:
         Returns:
             Formatted prompt string
         """
-        # Build element list (keep it concise)
+        # Build element list (increased limit for better coverage)
         element_lines = []
-        for el in elements[:20]:  # Limit to first 20 for prompt clarity
+        for el in elements[:40]:  # Increased from 20 to 40 for better coverage
             x, y = el['bbox']['x'], el['bbox']['y']
-            text = el['text'][:30] if el['text'] else '(no text)'
+            text = el['text'][:50] if el['text'] else '(no text)'  # Show more text
             element_lines.append(
                 f"[{el['id']}] {el['tag']} \"{text}\" at ({x}, {y})"
             )
         
         prompt = f"""You are an intelligent web automation agent. 
-You are analyzing a screenshot where interactive elements are marked with red tags (0, 1, 2...) very close to the element.
+You are analyzing a screenshot where interactive elements are marked with red numbered tags (0, 1, 2...) placed very close to each element.
 
 TASK: {task}
 
-VISIBLE ELEMENTS:
+VISIBLE ELEMENTS (with their red tag numbers):
 {chr(10).join(element_lines)}
 
 INSTRUCTIONS:
-1. Analyze the visual appearance of the candidate elements (color, shape, icon).
-2. Compare each element against the task description.
-3. Eliminate elements that do not match the visual description.
-4. Select the single best match.
+1. Look at the screenshot and find elements that match the task description.
+2. Match text content, visual appearance (color, shape, icon), and position.
+3. For video titles: Look for text that contains keywords from the task.
+4. Select the BEST matching element.
 
-FORMAT:
-Observation: (Briefly describe the visual style of relevant boxes)
-Thought: (Why does one box match better than the others?)
-Answer: (The box number only)
+CRITICAL: You MUST end your response with "Answer: X" where X is the box number.
+If you cannot find a match, respond with "Answer: NONE".
+
+FORMAT (you MUST follow this exactly):
+Observation: (What elements do you see that might match?)
+Thought: (Which one is the best match and why?)
+Answer: (The box number only, e.g., 5 or NONE)
 
 Example Response:
-Observation: Box 0 is a white input field. Box 2 is a blue rectangular button.
-Thought: The task asks for a "blue box". Box 2 is blue. Box 0 is white.
-Answer: 2
+Observation: Box 12 shows a video thumbnail with title "Cute Kitten Falls Off Bike". Box 5 shows "Cat Compilation".
+Thought: The task asks for "kitten falls off a bike". Box 12 contains "Kitten Falls Off Bike" which matches.
+Answer: 12
 
-Your Analysis:"""
+Your Analysis (MUST end with Answer: X):"""
         
         return prompt
     

@@ -106,15 +106,40 @@ class HybridAutomator:
         if not url.startswith(('http://', 'https://')):
             url = 'https://' + url
         
-        # Start browser
+        # Start browser (will reuse if already running)
         if not self.extractor.start_browser(headless=headless):
             print("❌ Failed to start browser")
             return False
         
-        # Navigate
-        if not self.extractor.navigate(url):
-            print("❌ Failed to navigate")
-            return False
+        # Check if already on the same URL (or same domain) - skip navigation if so
+        current_info = self.extractor.get_page_info()
+        current_url = current_info.get('url', '') if current_info else ''
+        
+        # Extract domains for comparison
+        def get_domain(u: str) -> str:
+            try:
+                from urllib.parse import urlparse
+                parsed = urlparse(u)
+                return parsed.netloc.lower().replace('www.', '')
+            except:
+                return u.lower()
+        
+        target_domain = get_domain(url)
+        current_domain = get_domain(current_url)
+        
+        # Only navigate if on a different domain or blank page
+        if current_domain and current_domain == target_domain:
+            print(f"   ♻️  Already on {target_domain}. Skipping navigation to preserve page state.")
+        elif not current_url or current_url == 'about:blank':
+            # Navigate only if no page loaded yet
+            if not self.extractor.navigate(url):
+                print("❌ Failed to navigate")
+                return False
+        else:
+            # Different domain - navigate
+            if not self.extractor.navigate(url):
+                print("❌ Failed to navigate")
+                return False
         
         page_info = self.extractor.get_page_info()
         print(f"\n✅ Ready!")
@@ -123,12 +148,13 @@ class HybridAutomator:
         
         return True
     
-    def execute_task(self, task: str) -> Dict:
+    def execute_task(self, task: str, max_scroll_attempts: int = 5) -> Dict:
         """
-        Execute a task using sequential fallback strategy
+        Execute a task using sequential fallback strategy with scroll-retry loop
         
         Args:
             task: Task description (e.g., "click search button")
+            max_scroll_attempts: Max times to scroll and retry if element not found
             
         Returns:
             Result dict with success status and method used
@@ -140,155 +166,172 @@ class HybridAutomator:
         self.stats['total_attempts'] += 1
         start_time = time.time()
         
-        # STEP 1: Extract DOM elements
-        print("\n📊 STEP 1: Extracting DOM elements...")
-        elements = self.extractor.extract_elements()
-        page_info = self.extractor.get_page_info()
-        
-        if not elements:
-            print("❌ No interactive elements found on page")
-            self.stats['failures'] += 1
-            return {
-                'success': False,
-                'method': 'failed',
-                'element_id': -1,
-                'element': None,
-                'reason': 'No elements found'
-            }
-        
-        print(f"✅ Found {len(elements)} interactive elements")
-        
-        # STEP 2: Try System 1 (DOM + Text Agent)
-        print("\n" + "-" * 70)
-        print("🚀 STEP 2: SYSTEM 1 - DOM Text Analysis")
-        print("-" * 70)
-        print("   Strategy: Fast text-based element matching")
-        print(f"   Analyzing: {min(len(elements), 50)} elements")
-        
-        system1_start = time.time()
-        element_id = self.text_agent.find_element_for_task(elements, task, page_info)
-        system1_time = time.time() - system1_start
-        
-        if element_id >= 0:
-            element = elements[element_id]
-            print(f"\n✅ SYSTEM 1 SUCCESS! (⚡ {system1_time:.2f}s)")
-            print(f"   Found: [{element_id}] {element['tag']} \"{element['text'][:40]}\"")
+        # SCROLL-RETRY LOOP: Try to find element, scroll if not found
+        for scroll_attempt in range(max_scroll_attempts + 1):
             
-            # Click the element
-            print(f"\n🖱️  Clicking element...")
-            self.extractor.click_by_id(element_id, elements)
+            if scroll_attempt > 0:
+                print(f"\n{'🔄' * 35}")
+                print(f"SCROLL ATTEMPT {scroll_attempt}/{max_scroll_attempts}")
+                print(f"{'🔄' * 35}")
+                print("📜 Scrolling down to reveal more content...")
+                self.extractor.scroll_page("down", pixels=600)
+                time.sleep(1.5)  # Wait for content to load
             
-            self.stats['system1_success'] += 1
-            elapsed = time.time() - start_time
+            # STEP 1: Extract DOM elements (FRESH extraction each time!)
+            print("\n📊 STEP 1: Extracting DOM elements...")
+            elements = self.extractor.extract_elements()
+            page_info = self.extractor.get_page_info()
             
-            print(f"✅ Task completed in {elapsed:.2f}s")
-            
-            return {
-                'success': True,
-                'method': 'dom',
-                'element_id': element_id,
-                'element': element,
-                'time': elapsed
-            }
-        
-        # STEP 3: System 1 failed - Activate System 2
-        print(f"\n⚠️  SYSTEM 1 FAILED (took {system1_time:.2f}s)")
-        print("   Reason: No matching element found via text analysis")
-        
-        print("\n" + "-" * 70)
-        print("🔄 STEP 3: SYSTEM 2 - Vision Fallback")
-        print("-" * 70)
-        print("   Strategy: Visual analysis with SoM annotations")
-        
-        try:
-            # Ensure vision agent is loaded
-            self._ensure_vision_agent()
-            
-            # Take screenshot
-            print("\n📸 Taking screenshot...")
-            screenshot = self.extractor.take_screenshot()
-            
-            if not screenshot:
-                print("❌ Screenshot failed")
+            if not elements:
+                print("❌ No interactive elements found on page")
+                if scroll_attempt < max_scroll_attempts:
+                    continue  # Try scrolling
                 self.stats['failures'] += 1
                 return {
                     'success': False,
                     'method': 'failed',
                     'element_id': -1,
                     'element': None,
-                    'reason': 'Screenshot failed'
+                    'reason': 'No elements found'
                 }
             
-            # Annotate with SoM
-            print("🎨 Creating SoM annotations...")
-            annotated_img, filtered_elements = self.annotator.filter_and_annotate(
-                screenshot,
-                elements,
-                max_elements=60  # Limit for vision clarity
-            )
+            print(f"✅ Found {len(elements)} interactive elements")
             
-            # Save annotated image temporarily
-            annotated_path = "temp_som_annotated.png"
-            with open(annotated_path, 'wb') as f:
-                f.write(annotated_img)
+            # STEP 2: Try System 1 (DOM + Text Agent)
+            print("\n" + "-" * 70)
+            print("🚀 STEP 2: SYSTEM 1 - DOM Text Analysis")
+            print("-" * 70)
+            print("   Strategy: Fast text-based element matching")
+            print(f"   Analyzing: {min(len(elements), 80)} elements")
             
-            print(f"✅ Annotated {len(filtered_elements)} elements")
+            system1_start = time.time()
+            element_id = self.text_agent.find_element_for_task(elements, task, page_info)
+            system1_time = time.time() - system1_start
             
-            # Analyze with vision
-            print("\n🤖 Analyzing with Vision LLM...")
-            system2_start = time.time()
-            
-            # NEW WAY: Vision returns the BOX NUMBER (Index 0, 1, 2...)
-            vision_index = self.vision_agent.find_element_by_vision(
-                annotated_path,
-                filtered_elements,
-                task
-            )
-            system2_time = time.time() - system2_start
-            
-            # Check if the index is valid (within the range of our filtered list)
-            if vision_index >= 0 and vision_index < len(filtered_elements):
+            if element_id >= 0:
+                element = elements[element_id]
+                print(f"\n✅ SYSTEM 1 SUCCESS! (⚡ {system1_time:.2f}s)")
+                print(f"   Found: [{element_id}] {element['tag']} \"{element['text'][:40]}\"")
                 
-                # 1. Get the actual element object from the filtered list using the index
-                target_element = filtered_elements[vision_index]
-                
-                # 2. Extract the REAL unique ID (e.g., 42, 105) from that element
-                real_id = target_element['id']
-                
-                print(f"\n✅ SYSTEM 2 SUCCESS! (🐌 {system2_time:.2f}s)")
-                print(f"   Visual Selection: Box #{vision_index}")
-                print(f"   Mapped to Real ID: {real_id}")
-                print(f"   Tag: {target_element['tag']} Text: \"{target_element['text'][:40]}\"")
-                
-                # 3. Click using the REAL ID
+                # Click the element
                 print(f"\n🖱️  Clicking element...")
-                click_success = self.extractor.click_by_id(real_id, elements)
+                self.extractor.click_by_id(element_id, elements)
                 
-                if click_success:
-                    self.stats['system2_success'] += 1
-                    elapsed = time.time() - start_time
-                    
-                    print(f"✅ Task completed in {elapsed:.2f}s (S1: {system1_time:.2f}s + S2: {system2_time:.2f}s)")
-                    
+                self.stats['system1_success'] += 1
+                elapsed = time.time() - start_time
+                
+                print(f"✅ Task completed in {elapsed:.2f}s")
+                
+                return {
+                    'success': True,
+                    'method': 'dom',
+                    'element_id': element_id,
+                    'element': element,
+                    'time': elapsed,
+                    'scroll_attempts': scroll_attempt
+                }
+            
+            # STEP 3: System 1 failed - Activate System 2 (Vision)
+            print(f"\n⚠️  SYSTEM 1 FAILED (took {system1_time:.2f}s)")
+            print("   Reason: No matching element found via text analysis")
+            
+            print("\n" + "-" * 70)
+            print("🔄 STEP 3: SYSTEM 2 - Vision Fallback")
+            print("-" * 70)
+            print("   Strategy: Visual analysis with SoM annotations")
+            
+            try:
+                # Ensure vision agent is loaded
+                self._ensure_vision_agent()
+                
+                # Take screenshot (FRESH from current viewport!)
+                print("\n📸 Taking screenshot...")
+                screenshot = self.extractor.take_screenshot()
+                
+                if not screenshot:
+                    print("❌ Screenshot failed")
+                    if scroll_attempt < max_scroll_attempts:
+                        continue  # Try scrolling
+                    self.stats['failures'] += 1
                     return {
-                        'success': True,
-                        'method': 'vision',
-                        'element_id': real_id,
-                        'element': target_element,
-                        'time': elapsed
+                        'success': False,
+                        'method': 'failed',
+                        'element_id': -1,
+                        'element': None,
+                        'reason': 'Screenshot failed'
                     }
-                else:
-                    print(f"❌ Click failed for ID {real_id}")
+                
+                # Annotate with SoM (using FRESH elements)
+                print("🎨 Creating SoM annotations...")
+                annotated_img, filtered_elements = self.annotator.filter_and_annotate(
+                    screenshot,
+                    elements,  # Using fresh elements from this viewport
+                    max_elements=60
+                )
+                
+                # Save annotated image temporarily
+                annotated_path = "temp_som_annotated.png"
+                with open(annotated_path, 'wb') as f:
+                    f.write(annotated_img)
+                
+                print(f"✅ Annotated {len(filtered_elements)} elements")
+                
+                # Analyze with vision
+                print("\n🤖 Analyzing with Vision LLM...")
+                system2_start = time.time()
+                
+                vision_index = self.vision_agent.find_element_by_vision(
+                    annotated_path,
+                    filtered_elements,
+                    task
+                )
+                system2_time = time.time() - system2_start
+                
+                # Check if the index is valid
+                if vision_index >= 0 and vision_index < len(filtered_elements):
+                    
+                    target_element = filtered_elements[vision_index]
+                    real_id = target_element['id']
+                    
+                    print(f"\n✅ SYSTEM 2 SUCCESS! (🐌 {system2_time:.2f}s)")
+                    print(f"   Visual Selection: Box #{vision_index}")
+                    print(f"   Mapped to Real ID: {real_id}")
+                    print(f"   Tag: {target_element['tag']} Text: \"{target_element['text'][:40]}\"")
+                    
+                    # Click using the REAL ID
+                    print(f"\n🖱️  Clicking element...")
+                    click_success = self.extractor.click_by_id(real_id, elements)
+                    
+                    if click_success:
+                        self.stats['system2_success'] += 1
+                        elapsed = time.time() - start_time
+                        
+                        print(f"✅ Task completed in {elapsed:.2f}s (S1: {system1_time:.2f}s + S2: {system2_time:.2f}s)")
+                        
+                        return {
+                            'success': True,
+                            'method': 'vision',
+                            'element_id': real_id,
+                            'element': target_element,
+                            'time': elapsed,
+                            'scroll_attempts': scroll_attempt
+                        }
+                    else:
+                        print(f"❌ Click failed for ID {real_id}")
+                
+                # Vision failed
+                print(f"\n❌ SYSTEM 2 FAILED (took {system2_time:.2f}s)")
+                
+            except Exception as e:
+                print(f"\n❌ SYSTEM 2 ERROR: {e}")
             
-            # If we get here, Vision failed or returned an invalid index
-            print(f"\n❌ SYSTEM 2 FAILED (took {system2_time:.2f}s)")
-            
-        except Exception as e:
-            print(f"\n❌ SYSTEM 2 ERROR: {e}")
+            # Both systems failed on this viewport - will scroll and retry
+            if scroll_attempt < max_scroll_attempts:
+                print(f"\n⚠️  Element not found in current viewport. Will scroll and retry...")
         
-        # STEP 4: Both systems failed
+        # EXHAUSTED ALL SCROLL ATTEMPTS
         print("\n" + "=" * 70)
-        print("❌ TASK FAILED - Both systems unable to complete")
+        print(f"❌ TASK FAILED - Element not found after {max_scroll_attempts} scroll attempts")
         print("=" * 70)
         
         self.stats['failures'] += 1
@@ -299,8 +342,9 @@ class HybridAutomator:
             'method': 'failed',
             'element_id': -1,
             'element': None,
-            'reason': 'Both systems failed',
-            'time': elapsed
+            'reason': f'Element not found after {max_scroll_attempts} scroll attempts',
+            'time': elapsed,
+            'scroll_attempts': max_scroll_attempts
         }
     
     def execute_sequence(self, tasks: List[str], stop_on_failure: bool = False) -> List[Dict]:

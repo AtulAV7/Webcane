@@ -238,7 +238,7 @@ class PlanningAgent:
     
     def _try_local(self, prompt: str) -> Optional[List[Dict]]:
         """
-        Try local Ollama model
+        Try local Ollama model with a SIMPLIFIED prompt
         
         Returns:
             Plan list or None on failure
@@ -246,14 +246,18 @@ class PlanningAgent:
         try:
             print(f"🤖 Generating plan with {self.local_model}...")
             
-            # Query Ollama
+            # Extract key info from the original prompt for a simpler version
+            # The local model struggles with complex prompts, so we simplify
+            simplified_prompt = self._create_simplified_prompt_for_local(prompt)
+            
+            # Query Ollama with simplified prompt
             response = ollama.generate(
                 model=self.local_model,
-                prompt=prompt,
+                prompt=simplified_prompt,
                 stream=False,
                 options={
-                    'temperature': 0.2,
-                    'num_predict': 500,
+                    'temperature': 0.1,  # Lower temperature for more predictable output
+                    'num_predict': 400,
                 }
             )
             
@@ -274,6 +278,52 @@ class PlanningAgent:
             print(f"❌ Local model error: {e}")
             self.stats['local_failures'] += 1
             return None
+    
+    def _create_simplified_prompt_for_local(self, original_prompt: str) -> str:
+        """
+        Create a much simpler prompt for the local model (Llama 3.2 3B).
+        Local models struggle with long, complex prompts.
+        """
+        # Extract URL and goal from original prompt
+        import re
+        
+        url_match = re.search(r'URL:\s*(\S+)', original_prompt)
+        current_url = url_match.group(1) if url_match else "unknown"
+        
+        goal_match = re.search(r'USER GOAL:\s*(.+?)(?:\n|$)', original_prompt)
+        goal = goal_match.group(1).strip() if goal_match else "unknown goal"
+        
+        # Create a MUCH simpler prompt with STRICT rules about preserving target text
+        simplified = f"""Convert this task to JSON steps. Output ONLY valid JSON array.
+
+URL: {current_url}
+TASK: {goal}
+
+STRICT RULES:
+1. You are ALREADY on this URL. Do NOT add "navigate" unless going to a DIFFERENT website.
+2. ONLY do exactly what the task says. NO extra steps.
+3. NEVER simplify or shorten the user's words. Copy them EXACTLY.
+4. Valid actions: navigate, find_and_click, type, scroll, press_key, wait
+5. Valid keys for press_key: Enter, Tab, Escape, ArrowUp, ArrowDown. NOT "Play button".
+
+TASK PATTERNS:
+- "click video titled X" = [{{"step":1,"action":"find_and_click","target":"video titled X","description":"Click video"}}]
+- "search for X" = [{{"step":1,"action":"find_and_click","target":"search box","description":"Click search"}},{{"step":2,"action":"type","target":"X","description":"Type"}},{{"step":3,"action":"press_key","target":"Enter","description":"Submit"}}]
+
+EXAMPLES:
+
+Task: "click video titled kitten falls off a bike"
+Output: [{{"step":1,"action":"find_and_click","target":"video titled kitten falls off a bike","description":"Click video"}}]
+
+Task: "search for samsung review"
+Output: [{{"step":1,"action":"find_and_click","target":"search box","description":"Click search"}},{{"step":2,"action":"type","target":"samsung review","description":"Type query"}},{{"step":3,"action":"press_key","target":"Enter","description":"Submit"}}]
+
+Now output JSON for: {goal}
+JSON:"""
+        
+        return simplified
+        
+        return simplified
     
     def _finalize_plan(self, plan: List[Dict], goal: str) -> List[Dict]:
         """
@@ -344,32 +394,49 @@ USER GOAL: {goal}
 
 Break this goal into atomic actions. Each action must be ONE of these types:
 - navigate: Go to a URL (target = full URL or domain)
-- find_and_click: Find and click an element (target = element description like "search button", "login link")
+- find_and_click: Find and click an element (target = element description like "search button", "login link", "video titled X")
 - type: Type text into the currently focused element (target = text to type)
 - wait: Wait for page to load (target = number of seconds, usually 1-3)
-- scroll: Scroll the page (target = "down", "up", or pixel amount)
+- scroll: Scroll the page (target = "down", "up", or pixel amount like "500")
 - press_key: Press a keyboard key (target = "Enter", "Tab", "Escape", etc.)
 - verify: Check if something exists (target = what to verify)
 
-IMPORTANT RULES:
-1. Be SPECIFIC in element descriptions (e.g., "search button" not "button")
-2. Include "wait" steps after actions that load new content
-3. Keep each step atomic (ONE action per step)
-4. Number steps sequentially starting from 1
-5. For searches: click search box → type query → press Enter OR click search button
-6. For navigation: use "navigate" action with just the domain (e.g., "youtube.com")
-7. If PAGE DESCRIPTION is provided, use it to understand what's actually visible on screen
-8. Do NOT plan steps for elements that aren't mentioned in the page description
+🔴 CONTEXT AWARENESS (CRITICAL):
+1. CHECK THE CURRENT URL FIRST. If already on the target website, do NOT add a "navigate" step.
+   - Example: If URL is "youtube.com/results?search_query=cats" and goal is "click a video", do NOT navigate to youtube.com again.
+2. ONLY do what the user explicitly asks. Do NOT add extra steps beyond the goal.
+   - If user says "search for X", STOP after the search is submitted. Do NOT click on results.
+   - If user says "click video titled X", just find and click that video. Do NOT search again.
 
-Return ONLY a valid JSON array with this exact format:
+IMPORTANT RULES:
+3. Be SPECIFIC in element descriptions (e.g., "search button" not "button")
+4. Include "wait" steps after actions that load new content
+5. Keep each step atomic (ONE action per step)
+6. Number steps sequentially starting from 1
+7. For searches: click search box → type query → press Enter. STOP THERE unless user asks to click something.
+8. If PAGE DESCRIPTION is provided, use it to understand what's actually visible on screen
+
+🔴 SCROLL-TO-FIND RULE:
+9. If the goal is to click a SPECIFIC item (like a video title) that might not be immediately visible:
+   - Add a "scroll" step before the "find_and_click" step
+10. For "click video titled X" tasks, include one scroll step
+
+Return ONLY a valid JSON array. Examples:
+
+For "search for cats" when already on youtube.com:
 [
-  {{"step": 1, "action": "navigate", "target": "youtube.com", "description": "Navigate to YouTube"}},
-  {{"step": 2, "action": "find_and_click", "target": "search box", "description": "Click search box"}},
-  {{"step": 3, "action": "type", "target": "search query text", "description": "Type search query"}},
-  {{"step": 4, "action": "press_key", "target": "Enter", "description": "Submit search"}}
+  {{"step": 1, "action": "find_and_click", "target": "search box", "description": "Click search box"}},
+  {{"step": 2, "action": "type", "target": "cats", "description": "Type search query"}},
+  {{"step": 3, "action": "press_key", "target": "Enter", "description": "Submit search"}}
 ]
 
-Now plan for this goal: {goal}
+For "click video titled funny cats" when on youtube.com/results:
+[
+  {{"step": 1, "action": "scroll", "target": "down", "description": "Scroll to see more videos"}},
+  {{"step": 2, "action": "find_and_click", "target": "video titled funny cats", "description": "Click the target video"}}
+]
+
+Now plan for: {goal}
 
 Return ONLY the JSON array, nothing else:"""
         

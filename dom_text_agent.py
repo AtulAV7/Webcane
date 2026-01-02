@@ -246,13 +246,13 @@ class DOMTextAgent:
         """
         Create optimized prompt with visual guardrails
         """
-        # Limit to first 50 elements (Groq has limits, keep context efficient)
-        limited_elements = elements[:50]
+        # Limit to first 80 elements (increased for better coverage on content-heavy pages)
+        limited_elements = elements[:80]
         
         element_lines = []
         for el in limited_elements:
             x, y = el['bbox']['x'], el['bbox']['y']
-            text = el['text'][:40] if el['text'] else '(no text)'
+            text = el['text'][:60] if el['text'] else '(no text)'  # Increased for longer titles
             html_info = f"id='{el['html_id']}'"
             
             line = f"[{el['id']}] {el['tag']} \"{text}\" {html_info} type={el['type']} at ({x}, {y})"
@@ -265,21 +265,27 @@ INTERACTIVE ELEMENTS:
 {chr(10).join(element_lines)}
 
 INSTRUCTIONS:
-1. Identify the TARGET element that matches the TASK "{task}".
-2. SEARCH strategies:
-   - Text Match: Does the element text match the task?
-   - Attribute Match: Does the ID or Class contain the task words?
-   
-3. 🔴 VISUAL GUARDRAIL (CRITICAL): 
-   - You are a TEXT-ONLY system. You cannot see colors, icons, or shapes.
-   - If the task requires a visual match (e.g., "click the red button"), but the element's ID/Class does not contain "red", return "ID: NONE".
-   - DO NOT GUESS based on common sense.
-   - Returning "NONE" allows our Vision System to take over.
+1. Find the element that BEST matches the TASK "{task}".
 
-4. If unsure, return "ID: NONE".
+2. SEARCH strategies:
+   - For "video titled X" or "click X titled Y": Find element containing keywords from the title.
+     Example: Task "video titled kitten falls" → Look for element text containing "kitten" and "falls"
+   - For "click button X": Find button/link with text matching X
+   - Attribute Match: Does the ID or Class contain the task words?
+
+3. KEYWORD MATCHING (for titles):
+   - Extract key words from the task (ignore "video", "titled", "click", "on", "the")
+   - Find element whose text contains MOST of those keywords
+   - Partial matches are OK if most keywords match
+
+4. 🔴 VISUAL GUARDRAIL: 
+   - You are a TEXT-ONLY system. You cannot see colors, icons, or shapes.
+   - If the task requires visual matching (e.g., "click the red button") and no text/ID contains "red", return "ID: NONE".
+
+5. If NO element contains the keywords, return "ID: NONE".
 
 FORMAT:
-REASONING: (Step-by-step thoughts. If task is visual/color and no text match found, state "Task requires vision" and return NONE)
+REASONING: (Which elements contain the keywords? Which is best match?)
 ID: (Number or NONE)
 
 Your response:"""
