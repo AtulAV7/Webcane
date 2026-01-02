@@ -1,0 +1,1430 @@
+[
+  {
+    "id": 0,
+    "tag": "button",
+    "text": "Guide",
+    "type": "button",
+    "bbox": {
+      "x": 24,
+      "y": 16,
+      "w": 24,
+      "h": 24
+    },
+    "html_id": "button",
+    "html_classes": "style-scope yt-icon-button"
+  },
+  {
+    "id": 1,
+    "tag": "button",
+    "text": "Search",
+    "type": "button",
+    "bbox": {
+      "x": 1178,
+      "y": 8,
+      "w": 64,
+      "h": 40
+    },
+    "html_id": "",
+    "html_classes": "ytSearchboxComponentSearchButton"
+  },
+  {
+    "id": 2,
+    "tag": "button",
+    "text": "Search with your voice",
+    "type": "button",
+    "bbox": {
+      "x": 1258,
+      "y": 8,
+      "w": 40,
+      "h": 40
+    },
+    "html_id": "",
+    "html_classes": "yt-spec-button-shape-next yt-spec-button-shape-next--text yt-spec-button-shape-next--mono yt-spec-button-shape-next--size-m yt-spec-button-shape-next--icon-only-default yt-spec-button-shape-next--enable-backdrop-filter-experiment"
+  },
+  {
+    "id": 3,
+    "tag": "button",
+    "text": "Settings",
+    "type": "button",
+    "bbox": {
+      "x": 1765,
+      "y": 16,
+      "w": 24,
+      "h": 24
+    },
+    "html_id": "button",
+    "html_classes": "style-scope yt-icon-button"
+  },
+  {
+    "id": 4,
+    "tag": "button",
+    "text": "All",
+    "type": "button",
+    "bbox": {
+      "x": 264,
+      "y": 68,
+      "w": 40,
+      "h": 32
+    },
+    "html_id": "",
+    "html_classes": "ytChipShapeButtonReset"
+  },
+  {
+    "id": 5,
+    "tag": "button",
+    "text": "Music",
+    "type": "button",
+    "bbox": {
+      "x": 316,
+      "y": 68,
+      "w": 62,
+      "h": 32
+    },
+    "html_id": "",
+    "html_classes": "ytChipShapeButtonReset"
+  },
+  {
+    "id": 6,
+    "tag": "button",
+    "text": "Black cats",
+    "type": "button",
+    "bbox": {
+      "x": 391,
+      "y": 68,
+      "w": 89,
+      "h": 32
+    },
+    "html_id": "",
+    "html_classes": "ytChipShapeButtonReset"
+  },
+  {
+    "id": 7,
+    "tag": "button",
+    "text": "Live",
+    "type": "button",
+    "bbox": {
+      "x": 491,
+      "y": 68,
+      "w": 49,
+      "h": 32
+    },
+    "html_id": "",
+    "html_classes": "ytChipShapeButtonReset"
+  },
+  {
+    "id": 8,
+    "tag": "button",
+    "text": "News",
+    "type": "button",
+    "bbox": {
+      "x": 553,
+      "y": 68,
+      "w": 59,
+      "h": 32
+    },
+    "html_id": "",
+    "html_classes": "ytChipShapeButtonReset"
+  },
+  {
+    "id": 9,
+    "tag": "button",
+    "text": "Gaming",
+    "type": "button",
+    "bbox": {
+      "x": 624,
+      "y": 68,
+      "w": 73,
+      "h": 32
+    },
+    "html_id": "",
+    "html_classes": "ytChipShapeButtonReset"
+  },
+  {
+    "id": 10,
+    "tag": "button",
+    "text": "Birdwatching",
+    "type": "button",
+    "bbox": {
+      "x": 708,
+      "y": 68,
+      "w": 106,
+      "h": 32
+    },
+    "html_id": "",
+    "html_classes": "ytChipShapeButtonReset"
+  },
+  {
+    "id": 11,
+    "tag": "button",
+    "text": "Tamil Cinema",
+    "type": "button",
+    "bbox": {
+      "x": 827,
+      "y": 68,
+      "w": 110,
+      "h": 32
+    },
+    "html_id": "",
+    "html_classes": "ytChipShapeButtonReset"
+  },
+  {
+    "id": 12,
+    "tag": "button",
+    "text": "Tamil television drama",
+    "type": "button",
+    "bbox": {
+      "x": 948,
+      "y": 68,
+      "w": 166,
+      "h": 32
+    },
+    "html_id": "",
+    "html_classes": "ytChipShapeButtonReset"
+  },
+  {
+    "id": 13,
+    "tag": "button",
+    "text": "Christmas ornaments",
+    "type": "button",
+    "bbox": {
+      "x": 1126,
+      "y": 68,
+      "w": 159,
+      "h": 32
+    },
+    "html_id": "",
+    "html_classes": "ytChipShapeButtonReset"
+  },
+  {
+    "id": 14,
+    "tag": "button",
+    "text": "Candy",
+    "type": "button",
+    "bbox": {
+      "x": 1297,
+      "y": 68,
+      "w": 63,
+      "h": 32
+    },
+    "html_id": "",
+    "html_classes": "ytChipShapeButtonReset"
+  },
+  {
+    "id": 15,
+    "tag": "button",
+    "text": "Dramedy",
+    "type": "button",
+    "bbox": {
+      "x": 1372,
+      "y": 68,
+      "w": 80,
+      "h": 32
+    },
+    "html_id": "",
+    "html_classes": "ytChipShapeButtonReset"
+  },
+  {
+    "id": 16,
+    "tag": "button",
+    "text": "Television comedy",
+    "type": "button",
+    "bbox": {
+      "x": 1464,
+      "y": 68,
+      "w": 141,
+      "h": 32
+    },
+    "html_id": "",
+    "html_classes": "ytChipShapeButtonReset"
+  },
+  {
+    "id": 17,
+    "tag": "button",
+    "text": "Folk Music",
+    "type": "button",
+    "bbox": {
+      "x": 1617,
+      "y": 68,
+      "w": 92,
+      "h": 32
+    },
+    "html_id": "",
+    "html_classes": "ytChipShapeButtonReset"
+  },
+  {
+    "id": 18,
+    "tag": "button",
+    "text": "Animated films",
+    "type": "button",
+    "bbox": {
+      "x": 1721,
+      "y": 68,
+      "w": 119,
+      "h": 32
+    },
+    "html_id": "",
+    "html_classes": "ytChipShapeButtonReset"
+  },
+  {
+    "id": 19,
+    "tag": "button",
+    "text": "Asian music",
+    "type": "button",
+    "bbox": {
+      "x": 1852,
+      "y": 68,
+      "w": 101,
+      "h": 32
+    },
+    "html_id": "",
+    "html_classes": "ytChipShapeButtonReset"
+  },
+  {
+    "id": 20,
+    "tag": "button",
+    "text": "Next",
+    "type": "button",
+    "bbox": {
+      "x": 1872,
+      "y": 64,
+      "w": 40,
+      "h": 40
+    },
+    "html_id": "",
+    "html_classes": "yt-spec-button-shape-next yt-spec-button-shape-next--text yt-spec-button-shape-next--mono yt-spec-button-shape-next--size-m yt-spec-button-shape-next--icon-only-default yt-spec-button-shape-next--enable-backdrop-filter-experiment"
+  },
+  {
+    "id": 21,
+    "tag": "button",
+    "text": "",
+    "type": "button",
+    "bbox": {
+      "x": 749,
+      "y": 388,
+      "w": 40,
+      "h": 40
+    },
+    "html_id": "",
+    "html_classes": "yt-spec-button-shape-next yt-spec-button-shape-next--tonal yt-spec-button-shape-next--overlay-dark yt-spec-button-shape-next--size-m yt-spec-button-shape-next--icon-only-default yt-spec-button-shape-next--enable-backdrop-filter-experiment"
+  },
+  {
+    "id": 22,
+    "tag": "button",
+    "text": "My Ad Centre",
+    "type": "button",
+    "bbox": {
+      "x": 771,
+      "y": 442,
+      "w": 36,
+      "h": 36
+    },
+    "html_id": "",
+    "html_classes": "yt-spec-button-shape-next yt-spec-button-shape-next--text yt-spec-button-shape-next--mono yt-spec-button-shape-next--size-m yt-spec-button-shape-next--icon-button yt-spec-button-shape-next--enable-backdrop-filter-experiment"
+  },
+  {
+    "id": 23,
+    "tag": "button",
+    "text": "More actions",
+    "type": "button",
+    "bbox": {
+      "x": 1321,
+      "y": 442,
+      "w": 36,
+      "h": 36
+    },
+    "html_id": "",
+    "html_classes": "yt-spec-button-shape-next yt-spec-button-shape-next--text yt-spec-button-shape-next--mono yt-spec-button-shape-next--size-m yt-spec-button-shape-next--icon-button yt-spec-button-shape-next--enable-backdrop-filter-experiment"
+  },
+  {
+    "id": 24,
+    "tag": "button",
+    "text": "More actions",
+    "type": "button",
+    "bbox": {
+      "x": 1870,
+      "y": 442,
+      "w": 36,
+      "h": 36
+    },
+    "html_id": "",
+    "html_classes": "yt-spec-button-shape-next yt-spec-button-shape-next--text yt-spec-button-shape-next--mono yt-spec-button-shape-next--size-m yt-spec-button-shape-next--icon-button yt-spec-button-shape-next--enable-backdrop-filter-experiment"
+  },
+  {
+    "id": 25,
+    "tag": "button",
+    "text": "Dismiss",
+    "type": "button",
+    "bbox": {
+      "x": 1816,
+      "y": 679,
+      "w": 40,
+      "h": 40
+    },
+    "html_id": "button",
+    "html_classes": "style-scope yt-icon-button"
+  },
+  {
+    "id": 26,
+    "tag": "button",
+    "text": "Submit",
+    "type": "button",
+    "bbox": {
+      "x": 1779,
+      "y": 1008,
+      "w": 77,
+      "h": 36
+    },
+    "html_id": "",
+    "html_classes": "yt-spec-button-shape-next yt-spec-button-shape-next--text yt-spec-button-shape-next--size-m yt-spec-button-shape-next--disabled yt-spec-button-shape-next--enable-backdrop-filter-experiment"
+  },
+  {
+    "id": 27,
+    "tag": "a",
+    "text": "YouTube Home",
+    "type": "button",
+    "bbox": {
+      "x": 56,
+      "y": 0,
+      "w": 123,
+      "h": 56
+    },
+    "html_id": "logo",
+    "html_classes": "yt-simple-endpoint style-scope ytd-topbar-logo-renderer"
+  },
+  {
+    "id": 28,
+    "tag": "a",
+    "text": "",
+    "type": "button",
+    "bbox": {
+      "x": 1757,
+      "y": 8,
+      "w": 40,
+      "h": 40
+    },
+    "html_id": "",
+    "html_classes": "yt-simple-endpoint style-scope ytd-topbar-menu-button-renderer"
+  },
+  {
+    "id": 29,
+    "tag": "a",
+    "text": "Sign in",
+    "type": "button",
+    "bbox": {
+      "x": 1805,
+      "y": 10,
+      "w": 99,
+      "h": 36
+    },
+    "html_id": "",
+    "html_classes": "yt-spec-button-shape-next yt-spec-button-shape-next--outline yt-spec-button-shape-next--call-to-action yt-spec-button-shape-next--size-m yt-spec-button-shape-next--icon-leading yt-spec-button-shape-next--enable-backdrop-filter-experiment"
+  },
+  {
+    "id": 30,
+    "tag": "a",
+    "text": "Home",
+    "type": "button",
+    "bbox": {
+      "x": 12,
+      "y": 68,
+      "w": 204,
+      "h": 40
+    },
+    "html_id": "endpoint",
+    "html_classes": "yt-simple-endpoint style-scope ytd-guide-entry-renderer"
+  },
+  {
+    "id": 31,
+    "tag": "a",
+    "text": "Shorts",
+    "type": "button",
+    "bbox": {
+      "x": 12,
+      "y": 108,
+      "w": 204,
+      "h": 40
+    },
+    "html_id": "endpoint",
+    "html_classes": "yt-simple-endpoint style-scope ytd-guide-entry-renderer"
+  },
+  {
+    "id": 32,
+    "tag": "a",
+    "text": "Subscriptions",
+    "type": "button",
+    "bbox": {
+      "x": 12,
+      "y": 148,
+      "w": 204,
+      "h": 40
+    },
+    "html_id": "endpoint",
+    "html_classes": "yt-simple-endpoint style-scope ytd-guide-entry-renderer"
+  },
+  {
+    "id": 33,
+    "tag": "a",
+    "text": "You",
+    "type": "button",
+    "bbox": {
+      "x": 12,
+      "y": 188,
+      "w": 204,
+      "h": 40
+    },
+    "html_id": "endpoint",
+    "html_classes": "yt-simple-endpoint style-scope ytd-guide-entry-renderer"
+  },
+  {
+    "id": 34,
+    "tag": "a",
+    "text": "History",
+    "type": "button",
+    "bbox": {
+      "x": 12,
+      "y": 228,
+      "w": 204,
+      "h": 40
+    },
+    "html_id": "endpoint",
+    "html_classes": "yt-simple-endpoint style-scope ytd-guide-entry-renderer"
+  },
+  {
+    "id": 35,
+    "tag": "a",
+    "text": "Sign in",
+    "type": "button",
+    "bbox": {
+      "x": 32,
+      "y": 349,
+      "w": 99,
+      "h": 36
+    },
+    "html_id": "",
+    "html_classes": "yt-spec-button-shape-next yt-spec-button-shape-next--outline yt-spec-button-shape-next--call-to-action yt-spec-button-shape-next--size-m yt-spec-button-shape-next--icon-leading yt-spec-button-shape-next--enable-backdrop-filter-experiment"
+  },
+  {
+    "id": 36,
+    "tag": "a",
+    "text": "Shopping",
+    "type": "button",
+    "bbox": {
+      "x": 12,
+      "y": 446,
+      "w": 204,
+      "h": 40
+    },
+    "html_id": "endpoint",
+    "html_classes": "yt-simple-endpoint style-scope ytd-guide-entry-renderer"
+  },
+  {
+    "id": 37,
+    "tag": "a",
+    "text": "Music",
+    "type": "button",
+    "bbox": {
+      "x": 12,
+      "y": 486,
+      "w": 204,
+      "h": 40
+    },
+    "html_id": "endpoint",
+    "html_classes": "yt-simple-endpoint style-scope ytd-guide-entry-renderer"
+  },
+  {
+    "id": 38,
+    "tag": "a",
+    "text": "Films",
+    "type": "button",
+    "bbox": {
+      "x": 12,
+      "y": 526,
+      "w": 204,
+      "h": 40
+    },
+    "html_id": "endpoint",
+    "html_classes": "yt-simple-endpoint style-scope ytd-guide-entry-renderer"
+  },
+  {
+    "id": 39,
+    "tag": "a",
+    "text": "Show more",
+    "type": "button",
+    "bbox": {
+      "x": 12,
+      "y": 566,
+      "w": 204,
+      "h": 40
+    },
+    "html_id": "endpoint",
+    "html_classes": "yt-simple-endpoint style-scope ytd-guide-entry-renderer"
+  },
+  {
+    "id": 40,
+    "tag": "a",
+    "text": "YouTube Premium",
+    "type": "button",
+    "bbox": {
+      "x": 12,
+      "y": 663,
+      "w": 204,
+      "h": 40
+    },
+    "html_id": "endpoint",
+    "html_classes": "yt-simple-endpoint style-scope ytd-guide-entry-renderer"
+  },
+  {
+    "id": 41,
+    "tag": "a",
+    "text": "YouTube Music",
+    "type": "button",
+    "bbox": {
+      "x": 12,
+      "y": 703,
+      "w": 204,
+      "h": 40
+    },
+    "html_id": "endpoint",
+    "html_classes": "yt-simple-endpoint style-scope ytd-guide-entry-renderer"
+  },
+  {
+    "id": 42,
+    "tag": "a",
+    "text": "YouTube Kids",
+    "type": "button",
+    "bbox": {
+      "x": 12,
+      "y": 743,
+      "w": 204,
+      "h": 40
+    },
+    "html_id": "endpoint",
+    "html_classes": "yt-simple-endpoint style-scope ytd-guide-entry-renderer"
+  },
+  {
+    "id": 43,
+    "tag": "a",
+    "text": "Settings",
+    "type": "button",
+    "bbox": {
+      "x": 12,
+      "y": 808,
+      "w": 204,
+      "h": 40
+    },
+    "html_id": "endpoint",
+    "html_classes": "yt-simple-endpoint style-scope ytd-guide-entry-renderer"
+  },
+  {
+    "id": 44,
+    "tag": "a",
+    "text": "Report history",
+    "type": "button",
+    "bbox": {
+      "x": 12,
+      "y": 848,
+      "w": 204,
+      "h": 40
+    },
+    "html_id": "endpoint",
+    "html_classes": "yt-simple-endpoint style-scope ytd-guide-entry-renderer"
+  },
+  {
+    "id": 45,
+    "tag": "a",
+    "text": "Help",
+    "type": "button",
+    "bbox": {
+      "x": 12,
+      "y": 888,
+      "w": 204,
+      "h": 40
+    },
+    "html_id": "endpoint",
+    "html_classes": "yt-simple-endpoint style-scope ytd-guide-entry-renderer"
+  },
+  {
+    "id": 46,
+    "tag": "a",
+    "text": "Send feedback",
+    "type": "button",
+    "bbox": {
+      "x": 12,
+      "y": 928,
+      "w": 204,
+      "h": 40
+    },
+    "html_id": "endpoint",
+    "html_classes": "yt-simple-endpoint style-scope ytd-guide-entry-renderer"
+  },
+  {
+    "id": 47,
+    "tag": "a",
+    "text": "About",
+    "type": "button",
+    "bbox": {
+      "x": 24,
+      "y": 997,
+      "w": 35,
+      "h": 18
+    },
+    "html_id": "",
+    "html_classes": ""
+  },
+  {
+    "id": 48,
+    "tag": "a",
+    "text": "Press",
+    "type": "button",
+    "bbox": {
+      "x": 67,
+      "y": 997,
+      "w": 33,
+      "h": 18
+    },
+    "html_id": "",
+    "html_classes": ""
+  },
+  {
+    "id": 49,
+    "tag": "a",
+    "text": "Copyright",
+    "type": "button",
+    "bbox": {
+      "x": 108,
+      "y": 997,
+      "w": 56,
+      "h": 18
+    },
+    "html_id": "",
+    "html_classes": ""
+  },
+  {
+    "id": 50,
+    "tag": "a",
+    "text": "Contact us",
+    "type": "button",
+    "bbox": {
+      "x": 24,
+      "y": 1015,
+      "w": 63,
+      "h": 18
+    },
+    "html_id": "",
+    "html_classes": ""
+  },
+  {
+    "id": 51,
+    "tag": "a",
+    "text": "Creator",
+    "type": "button",
+    "bbox": {
+      "x": 95,
+      "y": 1015,
+      "w": 43,
+      "h": 18
+    },
+    "html_id": "",
+    "html_classes": ""
+  },
+  {
+    "id": 52,
+    "tag": "a",
+    "text": "Advertise",
+    "type": "button",
+    "bbox": {
+      "x": 146,
+      "y": 1015,
+      "w": 55,
+      "h": 18
+    },
+    "html_id": "",
+    "html_classes": ""
+  },
+  {
+    "id": 53,
+    "tag": "a",
+    "text": "Developers",
+    "type": "button",
+    "bbox": {
+      "x": 24,
+      "y": 1033,
+      "w": 65,
+      "h": 18
+    },
+    "html_id": "",
+    "html_classes": ""
+  },
+  {
+    "id": 54,
+    "tag": "a",
+    "text": "Terms",
+    "type": "button",
+    "bbox": {
+      "x": 24,
+      "y": 1063,
+      "w": 37,
+      "h": 18
+    },
+    "html_id": "",
+    "html_classes": ""
+  },
+  {
+    "id": 55,
+    "tag": "a",
+    "text": "Privacy",
+    "type": "button",
+    "bbox": {
+      "x": 69,
+      "y": 1063,
+      "w": 43,
+      "h": 18
+    },
+    "html_id": "",
+    "html_classes": ""
+  },
+  {
+    "id": 56,
+    "tag": "a",
+    "text": "Policy & Safety",
+    "type": "button",
+    "bbox": {
+      "x": 120,
+      "y": 1063,
+      "w": 87,
+      "h": 18
+    },
+    "html_id": "",
+    "html_classes": ""
+  },
+  {
+    "id": 57,
+    "tag": "a",
+    "text": "",
+    "type": "button",
+    "bbox": {
+      "x": 264,
+      "y": 136,
+      "w": 533,
+      "h": 312
+    },
+    "html_id": "",
+    "html_classes": "yt-lockup-view-model__content-image"
+  },
+  {
+    "id": 58,
+    "tag": "a",
+    "text": "As an Expedia member, add a stay with your flight to save up to X% on selected stays",
+    "type": "button",
+    "bbox": {
+      "x": 312,
+      "y": 449,
+      "w": 454,
+      "h": 41
+    },
+    "html_id": "",
+    "html_classes": "yt-core-attributed-string__link yt-core-attributed-string__link--call-to-action-color yt-core-attributed-string--link-inherit-color"
+  },
+  {
+    "id": 59,
+    "tag": "a",
+    "text": "As an Expedia member, add a stay with your flight to save up to X% on selected stays",
+    "type": "button",
+    "bbox": {
+      "x": 312,
+      "y": 449,
+      "w": 454,
+      "h": 41
+    },
+    "html_id": "",
+    "html_classes": "yt-core-attributed-string__link yt-core-attributed-string__link--call-to-action-color yt-core-attributed-string--link-inherit-color"
+  },
+  {
+    "id": 60,
+    "tag": "a",
+    "text": "Watch",
+    "type": "button",
+    "bbox": {
+      "x": 264,
+      "y": 528,
+      "w": 265,
+      "h": 36
+    },
+    "html_id": "",
+    "html_classes": "yt-spec-button-shape-next yt-spec-button-shape-next--tonal yt-spec-button-shape-next--mono yt-spec-button-shape-next--size-m yt-spec-button-shape-next--enable-backdrop-filter-experiment"
+  },
+  {
+    "id": 61,
+    "tag": "a",
+    "text": "Book now",
+    "type": "button",
+    "bbox": {
+      "x": 533,
+      "y": 528,
+      "w": 265,
+      "h": 36
+    },
+    "html_id": "",
+    "html_classes": "yt-spec-button-shape-next yt-spec-button-shape-next--filled yt-spec-button-shape-next--mono yt-spec-button-shape-next--size-m yt-spec-button-shape-next--enable-backdrop-filter-experiment"
+  },
+  {
+    "id": 62,
+    "tag": "a",
+    "text": "8:36:07",
+    "type": "button",
+    "bbox": {
+      "x": 813,
+      "y": 136,
+      "w": 533,
+      "h": 312
+    },
+    "html_id": "",
+    "html_classes": "yt-lockup-view-model__content-image"
+  },
+  {
+    "id": 63,
+    "tag": "a",
+    "text": "Calming Videos for Cats - TV to Relax Your Cat and My Cat at Home : The Bird Garden 8 hours, 36 minu",
+    "type": "button",
+    "bbox": {
+      "x": 861,
+      "y": 448,
+      "w": 485,
+      "h": 44
+    },
+    "html_id": "",
+    "html_classes": "yt-lockup-metadata-view-model__title"
+  },
+  {
+    "id": 64,
+    "tag": "a",
+    "text": "Paul Dinning",
+    "type": "button",
+    "bbox": {
+      "x": 861,
+      "y": 495,
+      "w": 96,
+      "h": 17
+    },
+    "html_id": "",
+    "html_classes": "yt-core-attributed-string__link yt-core-attributed-string__link--call-to-action-color yt-core-attributed-string--link-inherit-color"
+  },
+  {
+    "id": 65,
+    "tag": "a",
+    "text": "4:46",
+    "type": "button",
+    "bbox": {
+      "x": 1363,
+      "y": 136,
+      "w": 533,
+      "h": 312
+    },
+    "html_id": "",
+    "html_classes": "yt-lockup-view-model__content-image"
+  },
+  {
+    "id": 66,
+    "tag": "a",
+    "text": "Thakilu Pukilu Video Song | 4K Remastered | Ravanaprabhu | Mohanlal | MG Sreekumar | Sujatha Mohan 4",
+    "type": "button",
+    "bbox": {
+      "x": 1411,
+      "y": 448,
+      "w": 485,
+      "h": 44
+    },
+    "html_id": "",
+    "html_classes": "yt-lockup-metadata-view-model__title"
+  },
+  {
+    "id": 67,
+    "tag": "a",
+    "text": "Matinee Now",
+    "type": "button",
+    "bbox": {
+      "x": 1411,
+      "y": 495,
+      "w": 100,
+      "h": 17
+    },
+    "html_id": "",
+    "html_classes": "yt-core-attributed-string__link yt-core-attributed-string__link--call-to-action-color yt-core-attributed-string--link-inherit-color"
+  },
+  {
+    "id": 68,
+    "tag": "a",
+    "text": "",
+    "type": "button",
+    "bbox": {
+      "x": 264,
+      "y": 640,
+      "w": 314,
+      "h": 470
+    },
+    "html_id": "",
+    "html_classes": "shortsLockupViewModelHostEndpoint reel-item-endpoint"
+  },
+  {
+    "id": 69,
+    "tag": "a",
+    "text": "",
+    "type": "button",
+    "bbox": {
+      "x": 594,
+      "y": 640,
+      "w": 314,
+      "h": 470
+    },
+    "html_id": "",
+    "html_classes": "shortsLockupViewModelHostEndpoint reel-item-endpoint"
+  },
+  {
+    "id": 70,
+    "tag": "a",
+    "text": "",
+    "type": "button",
+    "bbox": {
+      "x": 923,
+      "y": 640,
+      "w": 314,
+      "h": 470
+    },
+    "html_id": "",
+    "html_classes": "shortsLockupViewModelHostEndpoint reel-item-endpoint"
+  },
+  {
+    "id": 71,
+    "tag": "a",
+    "text": "",
+    "type": "button",
+    "bbox": {
+      "x": 1253,
+      "y": 640,
+      "w": 314,
+      "h": 470
+    },
+    "html_id": "",
+    "html_classes": "shortsLockupViewModelHostEndpoint reel-item-endpoint"
+  },
+  {
+    "id": 72,
+    "tag": "a",
+    "text": "",
+    "type": "button",
+    "bbox": {
+      "x": 1582,
+      "y": 640,
+      "w": 314,
+      "h": 470
+    },
+    "html_id": "",
+    "html_classes": "shortsLockupViewModelHostEndpoint reel-item-endpoint"
+  },
+  {
+    "id": 73,
+    "tag": "input",
+    "text": "Search",
+    "type": "text",
+    "bbox": {
+      "x": 659,
+      "y": 16,
+      "w": 515,
+      "h": 24
+    },
+    "html_id": "",
+    "html_classes": "ytSearchboxComponentInput yt-searchbox-input title"
+  },
+  {
+    "id": 74,
+    "tag": "ytd-guide-entry-renderer",
+    "text": "Show more",
+    "type": "button",
+    "bbox": {
+      "x": 12,
+      "y": 566,
+      "w": 204,
+      "h": 40
+    },
+    "html_id": "expander-item",
+    "html_classes": "style-scope ytd-guide-collapsible-entry-renderer"
+  },
+  {
+    "id": 75,
+    "tag": "div",
+    "text": "Expedia",
+    "type": "button",
+    "bbox": {
+      "x": 264,
+      "y": 448,
+      "w": 36,
+      "h": 36
+    },
+    "html_id": "",
+    "html_classes": "yt-spec-avatar-shape yt-spec-avatar-shape__button yt-spec-avatar-shape__button--button-medium yt-spec-avatar-shape__button--tappable"
+  },
+  {
+    "id": 76,
+    "tag": "div",
+    "text": "Go to channel Paul Dinning",
+    "type": "button",
+    "bbox": {
+      "x": 813,
+      "y": 448,
+      "w": 36,
+      "h": 36
+    },
+    "html_id": "",
+    "html_classes": "yt-spec-avatar-shape yt-spec-avatar-shape__button yt-spec-avatar-shape__button--button-medium yt-spec-avatar-shape__button--tappable"
+  },
+  {
+    "id": 77,
+    "tag": "div",
+    "text": "Go to channel Matinee Now",
+    "type": "button",
+    "bbox": {
+      "x": 1363,
+      "y": 448,
+      "w": 36,
+      "h": 36
+    },
+    "html_id": "",
+    "html_classes": "yt-spec-avatar-shape yt-spec-avatar-shape__button yt-spec-avatar-shape__button--button-medium yt-spec-avatar-shape__button--tappable"
+  },
+  {
+    "id": 78,
+    "tag": "tp-yt-paper-item",
+    "text": "Home",
+    "type": "button",
+    "bbox": {
+      "x": 12,
+      "y": 68,
+      "w": 204,
+      "h": 40
+    },
+    "html_id": "",
+    "html_classes": "style-scope ytd-guide-entry-renderer"
+  },
+  {
+    "id": 79,
+    "tag": "tp-yt-paper-item",
+    "text": "Shorts",
+    "type": "button",
+    "bbox": {
+      "x": 12,
+      "y": 108,
+      "w": 204,
+      "h": 40
+    },
+    "html_id": "",
+    "html_classes": "style-scope ytd-guide-entry-renderer"
+  },
+  {
+    "id": 80,
+    "tag": "tp-yt-paper-item",
+    "text": "Subscriptions",
+    "type": "button",
+    "bbox": {
+      "x": 12,
+      "y": 148,
+      "w": 204,
+      "h": 40
+    },
+    "html_id": "",
+    "html_classes": "style-scope ytd-guide-entry-renderer"
+  },
+  {
+    "id": 81,
+    "tag": "tp-yt-paper-item",
+    "text": "You",
+    "type": "button",
+    "bbox": {
+      "x": 12,
+      "y": 188,
+      "w": 204,
+      "h": 40
+    },
+    "html_id": "",
+    "html_classes": "style-scope ytd-guide-entry-renderer"
+  },
+  {
+    "id": 82,
+    "tag": "tp-yt-paper-item",
+    "text": "History",
+    "type": "button",
+    "bbox": {
+      "x": 12,
+      "y": 228,
+      "w": 204,
+      "h": 40
+    },
+    "html_id": "",
+    "html_classes": "style-scope ytd-guide-entry-renderer"
+  },
+  {
+    "id": 83,
+    "tag": "tp-yt-paper-item",
+    "text": "Shopping",
+    "type": "button",
+    "bbox": {
+      "x": 12,
+      "y": 446,
+      "w": 204,
+      "h": 40
+    },
+    "html_id": "",
+    "html_classes": "style-scope ytd-guide-entry-renderer"
+  },
+  {
+    "id": 84,
+    "tag": "tp-yt-paper-item",
+    "text": "Music",
+    "type": "button",
+    "bbox": {
+      "x": 12,
+      "y": 486,
+      "w": 204,
+      "h": 40
+    },
+    "html_id": "",
+    "html_classes": "style-scope ytd-guide-entry-renderer"
+  },
+  {
+    "id": 85,
+    "tag": "tp-yt-paper-item",
+    "text": "Films",
+    "type": "button",
+    "bbox": {
+      "x": 12,
+      "y": 526,
+      "w": 204,
+      "h": 40
+    },
+    "html_id": "",
+    "html_classes": "style-scope ytd-guide-entry-renderer"
+  },
+  {
+    "id": 86,
+    "tag": "tp-yt-paper-item",
+    "text": "Show more",
+    "type": "button",
+    "bbox": {
+      "x": 12,
+      "y": 566,
+      "w": 204,
+      "h": 40
+    },
+    "html_id": "",
+    "html_classes": "style-scope ytd-guide-entry-renderer"
+  },
+  {
+    "id": 87,
+    "tag": "tp-yt-paper-item",
+    "text": "YouTube Premium",
+    "type": "button",
+    "bbox": {
+      "x": 12,
+      "y": 663,
+      "w": 204,
+      "h": 40
+    },
+    "html_id": "",
+    "html_classes": "style-scope ytd-guide-entry-renderer"
+  },
+  {
+    "id": 88,
+    "tag": "tp-yt-paper-item",
+    "text": "YouTube Music",
+    "type": "button",
+    "bbox": {
+      "x": 12,
+      "y": 703,
+      "w": 204,
+      "h": 40
+    },
+    "html_id": "",
+    "html_classes": "style-scope ytd-guide-entry-renderer"
+  },
+  {
+    "id": 89,
+    "tag": "tp-yt-paper-item",
+    "text": "YouTube Kids",
+    "type": "button",
+    "bbox": {
+      "x": 12,
+      "y": 743,
+      "w": 204,
+      "h": 40
+    },
+    "html_id": "",
+    "html_classes": "style-scope ytd-guide-entry-renderer"
+  },
+  {
+    "id": 90,
+    "tag": "tp-yt-paper-item",
+    "text": "Settings",
+    "type": "button",
+    "bbox": {
+      "x": 12,
+      "y": 808,
+      "w": 204,
+      "h": 40
+    },
+    "html_id": "",
+    "html_classes": "style-scope ytd-guide-entry-renderer"
+  },
+  {
+    "id": 91,
+    "tag": "tp-yt-paper-item",
+    "text": "Report history",
+    "type": "button",
+    "bbox": {
+      "x": 12,
+      "y": 848,
+      "w": 204,
+      "h": 40
+    },
+    "html_id": "",
+    "html_classes": "style-scope ytd-guide-entry-renderer"
+  },
+  {
+    "id": 92,
+    "tag": "tp-yt-paper-item",
+    "text": "Help",
+    "type": "button",
+    "bbox": {
+      "x": 12,
+      "y": 888,
+      "w": 204,
+      "h": 40
+    },
+    "html_id": "",
+    "html_classes": "style-scope ytd-guide-entry-renderer"
+  },
+  {
+    "id": 93,
+    "tag": "tp-yt-paper-item",
+    "text": "Send feedback",
+    "type": "button",
+    "bbox": {
+      "x": 12,
+      "y": 928,
+      "w": 204,
+      "h": 40
+    },
+    "html_id": "",
+    "html_classes": "style-scope ytd-guide-entry-renderer"
+  },
+  {
+    "id": 94,
+    "tag": "tp-yt-paper-dialog",
+    "text": "Which of the following have you experienced on your YouTube homepage today? Too much of one topic To",
+    "type": "button",
+    "bbox": {
+      "x": 1555,
+      "y": 642,
+      "w": 325,
+      "h": 414
+    },
+    "html_id": "",
+    "html_classes": "style-scope ytd-popup-container"
+  },
+  {
+    "id": 95,
+    "tag": "ytd-checkbox-survey-renderer",
+    "text": "Which of the following have you experienced on your YouTube homepage today? Too much of one topic To",
+    "type": "button",
+    "bbox": {
+      "x": 1555,
+      "y": 642,
+      "w": 325,
+      "h": 414
+    },
+    "html_id": "",
+    "html_classes": "style-scope ytd-popup-container"
+  },
+  {
+    "id": 96,
+    "tag": "tp-yt-paper-checkbox",
+    "text": "Too much of one topic",
+    "type": "button",
+    "bbox": {
+      "x": 1555,
+      "y": 744,
+      "w": 325,
+      "h": 36
+    },
+    "html_id": "",
+    "html_classes": "style-scope ytd-checkbox-survey-option-renderer"
+  },
+  {
+    "id": 97,
+    "tag": "tp-yt-paper-checkbox",
+    "text": "Too many old videos",
+    "type": "button",
+    "bbox": {
+      "x": 1555,
+      "y": 780,
+      "w": 325,
+      "h": 36
+    },
+    "html_id": "",
+    "html_classes": "style-scope ytd-checkbox-survey-option-renderer"
+  },
+  {
+    "id": 98,
+    "tag": "tp-yt-paper-checkbox",
+    "text": "Too many videos from my subscriptions",
+    "type": "button",
+    "bbox": {
+      "x": 1555,
+      "y": 816,
+      "w": 325,
+      "h": 54
+    },
+    "html_id": "",
+    "html_classes": "style-scope ytd-checkbox-survey-option-renderer"
+  },
+  {
+    "id": 99,
+    "tag": "tp-yt-paper-checkbox",
+    "text": "Too few videos from my subscriptions",
+    "type": "button",
+    "bbox": {
+      "x": 1555,
+      "y": 870,
+      "w": 325,
+      "h": 54
+    },
+    "html_id": "",
+    "html_classes": "style-scope ytd-checkbox-survey-option-renderer"
+  },
+  {
+    "id": 100,
+    "tag": "tp-yt-paper-checkbox",
+    "text": "Other problems",
+    "type": "button",
+    "bbox": {
+      "x": 1555,
+      "y": 924,
+      "w": 325,
+      "h": 36
+    },
+    "html_id": "",
+    "html_classes": "style-scope ytd-checkbox-survey-option-renderer"
+  },
+  {
+    "id": 101,
+    "tag": "tp-yt-paper-checkbox",
+    "text": "None/Not sure",
+    "type": "button",
+    "bbox": {
+      "x": 1555,
+      "y": 960,
+      "w": 325,
+      "h": 36
+    },
+    "html_id": "",
+    "html_classes": "style-scope ytd-checkbox-survey-option-renderer"
+  }
+]
