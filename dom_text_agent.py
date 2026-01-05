@@ -351,26 +351,54 @@ Your response:"""
         """
         Parse LLM response to extract element ID
         Works for both Groq and Ollama responses
+        
+        Priority:
+        1. Explicit "ID: X" format
+        2. Numbers in brackets like [23] (mentioned as best match)
+        3. Last mentioned bracket number before reasoning cuts off
         """
         try:
-            # Use regex to find ID
+            # Priority 1: Look for explicit "ID: X" format
             match = re.search(r'ID:\s*(\d+|NONE)', response, re.IGNORECASE)
-            
-            if not match:
-                # Fallback: look for any number
-                numbers = re.findall(r'\b\d+\b', response)
-                if not numbers:
-                    return -1
-                element_id = int(numbers[-1])
-            else:
+            if match:
                 id_str = match.group(1).upper()
                 if id_str == 'NONE':
                     return -1
                 element_id = int(id_str)
+                if 0 <= element_id < len(elements):
+                    return element_id
             
-            # Validate range
-            if 0 <= element_id < len(elements):
-                return element_id
+            # Priority 2: Look for "best match is [X]" or "the best match is [X]"
+            best_match = re.search(r'best match[^[]*\[(\d+)\]', response, re.IGNORECASE)
+            if best_match:
+                element_id = int(best_match.group(1))
+                if 0 <= element_id < len(elements):
+                    return element_id
+            
+            # Priority 3: Look for element mention pattern "[X] tag" with positive sentiment
+            # Find all bracket numbers and their context
+            bracket_mentions = re.findall(r'\[(\d+)\][^.]*(?:match|search|input|click|best)', response, re.IGNORECASE)
+            if bracket_mentions:
+                element_id = int(bracket_mentions[-1])
+                if 0 <= element_id < len(elements):
+                    return element_id
+            
+            # Priority 4: Any bracket number that's mentioned (last one usually is the answer)
+            all_brackets = re.findall(r'\[(\d+)\]', response)
+            if all_brackets:
+                # Take the last bracket number mentioned (usually the conclusion)
+                element_id = int(all_brackets[-1])
+                if 0 <= element_id < len(elements):
+                    return element_id
+            
+            # Priority 5: Fallback - look for standalone numbers (avoid coordinates)
+            # Avoid numbers in parentheses like (419, 16) which are coordinates
+            standalone_numbers = re.findall(r'(?<!\()\b(\d+)\b(?!\s*,\s*\d+\s*\))', response)
+            if standalone_numbers:
+                element_id = int(standalone_numbers[-1])
+                if 0 <= element_id < len(elements):
+                    return element_id
+            
             return -1
                 
         except Exception as e:

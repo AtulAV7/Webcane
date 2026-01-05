@@ -227,7 +227,7 @@ class VisionAgent:
                 [image_file, prompt],
                 generation_config=genai.types.GenerationConfig(
                     temperature=0.1,
-                    max_output_tokens=512,
+                    max_output_tokens=800,  # Increased to prevent cutoff before Answer:
                 )
             )
             
@@ -317,34 +317,39 @@ class VisionAgent:
                 f"[{el['id']}] {el['tag']} \"{text}\" at ({x}, {y})"
             )
         
-        prompt = f"""You are an intelligent web automation agent. 
-You are analyzing a screenshot where interactive elements are marked with red numbered tags (0, 1, 2...) placed very close to each element.
+        # Detect if this is a thumbnail/image task
+        task_lower = task.lower()
+        is_thumbnail_task = any(kw in task_lower for kw in ['thumbnail', 'image', 'picture', 'photo'])
+        
+        prompt = f"""TASK: {task}
 
-TASK: {task}
+You are analyzing a screenshot with red numbered tags (0, 1, 2...) marking interactive elements.
 
-VISIBLE ELEMENTS (with their red tag numbers):
+{"🎬 THUMBNAIL TASK: Find VIDEO THUMBNAILS only, NOT navigation buttons." if is_thumbnail_task else ""}
+
+ELEMENTS:
 {chr(10).join(element_lines)}
 
-INSTRUCTIONS:
-1. Look at the screenshot and find elements that match the task description.
-2. Match text content, visual appearance (color, shape, icon), and position.
-3. For video titles: Look for text that contains keywords from the task.
-4. Select the BEST matching element.
+🔴 RULES:
+1. NEVER select: Home, Logo, Menu, Search, Settings, Account, navigation.
+2. Find the CLOSEST match (partial matches count).
+3. Be flexible: "red car" = any red vehicle, "robot" = any mechanical/animated character.
+4. Prefer selecting something over NONE.
 
-CRITICAL: You MUST end your response with "Answer: X" where X is the box number.
-If you cannot find a match, respond with "Answer: NONE".
+⚡ CRITICAL - OUTPUT FORMAT:
+You MUST start your response with "Answer: X" on the FIRST LINE.
+Then optionally add a brief reason.
 
-FORMAT (you MUST follow this exactly):
-Observation: (What elements do you see that might match?)
-Thought: (Which one is the best match and why?)
-Answer: (The box number only, e.g., 5 or NONE)
+✅ CORRECT FORMAT:
+Answer: 24
+Reason: Box 24 shows a red race car on a track.
 
-Example Response:
-Observation: Box 12 shows a video thumbnail with title "Cute Kitten Falls Off Bike". Box 5 shows "Cat Compilation".
-Thought: The task asks for "kitten falls off a bike". Box 12 contains "Kitten Falls Off Bike" which matches.
-Answer: 12
+❌ WRONG FORMAT (DO NOT DO THIS):
+Observation: I see thumbnails...
+Thought: Box 24 looks like...
+Answer: 24
 
-Your Analysis (MUST end with Answer: X):"""
+RESPOND NOW (start with "Answer: X"):"""
         
         return prompt
     
@@ -419,31 +424,50 @@ Your Analysis (MUST end with Answer: X):"""
     def _parse_response(self, response: str, elements: List[Dict]) -> int:
         """
         Parse vision model response (works for both Gemini and Qwen3-VL)
-        Prioritizes explicit 'Answer: X' and avoids false positive 'NONE's in reasoning text.
+        
+        STRICT PARSING - Only accepts:
+        1. Explicit 'Answer: X' format
+        2. 'Box X' or 'Box #X' patterns
+        
+        Does NOT accept:
+        - List items like '1. The top'
+        - Random numbers in text
         """
         try:
             # 🟢 1. First, look for a strict "Answer: X" pattern
             match = re.search(r'Answer:\s*(\d+)', response, re.IGNORECASE)
-            
             if match:
                 element_id = int(match.group(1))
-                # Validate range immediately
                 if 0 <= element_id < len(elements):
                     return element_id
             
-            # 🟡 2. If no strict answer, CHECK FOR "NONE" NOW
-            if re.search(r'Answer:\s*NONE', response, re.IGNORECASE) or response.strip().upper() == 'NONE':
+            # 🟢 2. Check for "Answer: NONE"
+            if re.search(r'Answer:\s*NONE', response, re.IGNORECASE):
                 print("   Model returned NONE")
                 return -1
             
-            # 🟠 3. Fallback: Last number in text
-            numbers = re.findall(r'\b\d+\b', response)
-            if numbers:
-                element_id = int(numbers[-1])
+            # 🟡 3. Look for "Box X" or "Box #X" patterns (with positive context)
+            box_match = re.search(r'Box\s*#?\s*(\d+)\s*(?:is|shows|matches|contains|has)', response, re.IGNORECASE)
+            if box_match:
+                element_id = int(box_match.group(1))
                 if 0 <= element_id < len(elements):
                     return element_id
-
-            print(f"⚠️  No valid ID found in response: {response}")
+            
+            # 🟡 4. Look for "Box X" mentioned as the answer/conclusion
+            # This catches "I would select Box 15" or "The answer is Box 15"
+            box_answer = re.search(r'(?:select|click|choose|answer is)\s*Box\s*#?\s*(\d+)', response, re.IGNORECASE)
+            if box_answer:
+                element_id = int(box_answer.group(1))
+                if 0 <= element_id < len(elements):
+                    return element_id
+            
+            # 🔴 5. If response doesn't have "Answer:" at all, it's likely cut off
+            # DON'T guess from random numbers - return failure
+            if 'Answer:' not in response:
+                print(f"⚠️  Response incomplete (no Answer: found)")
+                return -1
+            
+            print(f"⚠️  No valid ID found in response: {response[:100]}...")
             return -1
                 
         except Exception as e:

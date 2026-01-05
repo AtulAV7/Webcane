@@ -72,6 +72,34 @@
   {
     "id": 5,
     "tag": "button",
+    "text": "Show cards",
+    "type": "button",
+    "bbox": {
+      "x": 958,
+      "y": 76,
+      "w": 36,
+      "h": 36
+    },
+    "html_id": "",
+    "html_classes": "ytp-button ytp-cards-button"
+  },
+  {
+    "id": 6,
+    "tag": "button",
+    "text": "",
+    "type": "button",
+    "bbox": {
+      "x": 954,
+      "y": 505,
+      "w": 40,
+      "h": 40
+    },
+    "html_id": "",
+    "html_classes": "branding-img-container ytp-button"
+  },
+  {
+    "id": 7,
+    "tag": "button",
     "text": "Play (k)",
     "type": "button",
     "bbox": {
@@ -81,15 +109,15 @@
       "h": 40
     },
     "html_id": "",
-    "html_classes": "ytp-play-button ytp-button"
+    "html_classes": "ytp-play-button ytp-button ytp-play-button-playlist"
   },
   {
-    "id": 6,
+    "id": 8,
     "tag": "button",
     "text": "Mute (m)",
     "type": "button",
     "bbox": {
-      "x": 80,
+      "x": 192,
       "y": 577,
       "w": 40,
       "h": 40
@@ -98,21 +126,7 @@
     "html_classes": "ytp-volume-icon ytp-button"
   },
   {
-    "id": 7,
-    "tag": "button",
-    "text": "Auto-play is on",
-    "type": "button",
-    "bbox": {
-      "x": 750,
-      "y": 577,
-      "w": 48,
-      "h": 40
-    },
-    "html_id": "",
-    "html_classes": "ytp-button ytp-autonav-toggle"
-  },
-  {
-    "id": 8,
+    "id": 9,
     "tag": "button",
     "text": "Subtitles/closed captions unavailable",
     "type": "button",
@@ -126,7 +140,7 @@
     "html_classes": "ytp-subtitles-button ytp-button"
   },
   {
-    "id": 9,
+    "id": 10,
     "tag": "button",
     "text": "Settings",
     "type": "button",
@@ -140,7 +154,7 @@
     "html_classes": "ytp-button ytp-settings-button"
   },
   {
-    "id": 10,
+    "id": 11,
     "tag": "button",
     "text": "Cinema mode (t)",
     "type": "button",
@@ -154,9 +168,9 @@
     "html_classes": "ytp-size-button ytp-button"
   },
   {
-    "id": 11,
+    "id": 12,
     "tag": "button",
-    "text": "Full screen (f)",
+    "text": "Full screen keyboard shortcut f",
     "type": "button",
     "bbox": {
       "x": 942,
@@ -168,13 +182,13 @@
     "html_classes": "ytp-fullscreen-button ytp-button"
   },
   {
-    "id": 12,
+    "id": 13,
     "tag": "button",
-    "text": "Subscribe to TailRipple Media.",
+    "text": "Subscribe",
     "type": "button",
     "bbox": {
-      "x": 228,
-      "y": 676,
+      "x": 244,
+      "y": 673,
       "w": 95,
       "h": 36
     },
@@ -182,13 +196,13 @@
     "html_classes": "yt-spec-button-shape-next yt-spec-button-shape-next--filled yt-spec-button-shape-next--mono yt-spec-button-shape-next--size-m yt-spec-button-shape-next--enable-backdrop-filter-experiment"
   },
   {
-    "id": 13,
+    "id": 14,
     "tag": "button",
-    "text": "like this video along with 119,161 other people",
+    "text": "like this video along with 575,791 other people",
     "type": "button",
     "bbox": {
       "x": 502,
-      "y": 676,
+      "y": 673,
       "w": 87,
       "h": 36
     },
@@ -196,13 +210,13 @@
     "html_classes": "yt-spec-button-shape-next yt-spec-button-shape-next--tonal yt-spec-button-shape-next--mono yt-spec-button-shape-next--size-m yt-spec-button-shape-next--icon-leading yt-spec-button-shape-next--segmented-start yt-spec-button-shape-next--enable-backdrop-filter-experiment"
   },
   {
-    "id": 14,
+    "id": 15,
     "tag": "button",
     "text": "Dislike this video",
     "type": "button",
     "bbox": {
       "x": 589,
-      "y": 676,
+      "y": 673,
       "w": 52,
       "h": 36
     },
@@ -210,28 +224,14 @@
     "html_classes": "yt-spec-button-shape-next yt-spec-button-shape-next--tonal yt-spec-button-shape-next--mono yt-spec-button-shape-next--size-m yt-spec-button-shape-next--icon-button yt-spec-button-shape-next--segmented-end yt-spec-button-shape-next--enable-backdrop-filter-experiment"
   },
   {
-    "id": 15,
+    "id": 16,
     "tag": "button",
     "text": "Share",
     "type": "button",
     "bbox": {
       "x": 649,
-      "y": 676,
+      "y": 673,
       "w": 92,
-      "h": 36
-    },
-    "html_id": "",
-    "html_classes": "yt-spec-button-shape-next yt-spec-button-shape-next--tonal yt-spec-button-shape-next--mono yt-spec-button-shape-next--size-m yt-spec-button-shape-next--icon-leading yt-spec-button-shape-next--enable-backdrop-filter-experiment"
-  },
-  {
-    "id": 16,
-    "tag": "button",
-    "text": "Download",
-    "type": "button",
-    "bbox": {
-      "x": 749,
-      "y": 676,
-      "w": 118,
       "h": 36
     },
     "html_id": "",
@@ -243,8 +243,8 @@
     "text": "Save to playlist",
     "type": "button",
     "bbox": {
-      "x": 876,
-      "y": 676,
+      "x": 749,
+      "y": 673,
       "w": 86,
       "h": 36
     },
@@ -254,16 +254,16 @@
   {
     "id": 18,
     "tag": "button",
-    "text": "More actions",
+    "text": "Download",
     "type": "button",
     "bbox": {
-      "x": 970,
-      "y": 676,
-      "w": 36,
+      "x": 844,
+      "y": 673,
+      "w": 118,
       "h": 36
     },
     "html_id": "",
-    "html_classes": "yt-spec-button-shape-next yt-spec-button-shape-next--tonal yt-spec-button-shape-next--mono yt-spec-button-shape-next--size-m yt-spec-button-shape-next--icon-button yt-spec-button-shape-next--enable-backdrop-filter-experiment"
+    "html_classes": "yt-spec-button-shape-next yt-spec-button-shape-next--tonal yt-spec-button-shape-next--size-m yt-spec-button-shape-next--disabled yt-spec-button-shape-next--icon-leading yt-spec-button-shape-next--enable-backdrop-filter-experiment"
   },
   {
     "id": 19,
@@ -271,27 +271,27 @@
     "text": "More actions",
     "type": "button",
     "bbox": {
-      "x": 1398,
-      "y": 62,
+      "x": 970,
+      "y": 673,
       "w": 36,
       "h": 36
     },
     "html_id": "",
-    "html_classes": "yt-spec-button-shape-next yt-spec-button-shape-next--text yt-spec-button-shape-next--mono yt-spec-button-shape-next--size-m yt-spec-button-shape-next--icon-button yt-spec-button-shape-next--enable-backdrop-filter-experiment"
+    "html_classes": "yt-spec-button-shape-next yt-spec-button-shape-next--tonal yt-spec-button-shape-next--mono yt-spec-button-shape-next--size-m yt-spec-button-shape-next--icon-button yt-spec-button-shape-next--enable-backdrop-filter-experiment"
   },
   {
     "id": 20,
     "tag": "button",
-    "text": "More actions",
+    "text": "Expand",
     "type": "button",
     "bbox": {
-      "x": 1398,
-      "y": 170,
-      "w": 36,
-      "h": 36
+      "x": 1377,
+      "y": 82,
+      "w": 40,
+      "h": 40
     },
-    "html_id": "",
-    "html_classes": "yt-spec-button-shape-next yt-spec-button-shape-next--text yt-spec-button-shape-next--mono yt-spec-button-shape-next--size-m yt-spec-button-shape-next--icon-button yt-spec-button-shape-next--enable-backdrop-filter-experiment"
+    "html_id": "button",
+    "html_classes": "style-scope yt-icon-button"
   },
   {
     "id": 21,
@@ -300,7 +300,7 @@
     "type": "button",
     "bbox": {
       "x": 1398,
-      "y": 273,
+      "y": 146,
       "w": 36,
       "h": 36
     },
@@ -314,7 +314,7 @@
     "type": "button",
     "bbox": {
       "x": 1398,
-      "y": 381,
+      "y": 249,
       "w": 36,
       "h": 36
     },
@@ -328,7 +328,7 @@
     "type": "button",
     "bbox": {
       "x": 1398,
-      "y": 483,
+      "y": 351,
       "w": 36,
       "h": 36
     },
@@ -338,30 +338,30 @@
   {
     "id": 24,
     "tag": "button",
-    "text": "More actions",
+    "text": "Watch Later",
     "type": "button",
     "bbox": {
-      "x": 1398,
-      "y": 591,
-      "w": 36,
-      "h": 36
+      "x": 1154,
+      "y": 464,
+      "w": 32,
+      "h": 32
     },
     "html_id": "",
-    "html_classes": "yt-spec-button-shape-next yt-spec-button-shape-next--text yt-spec-button-shape-next--mono yt-spec-button-shape-next--size-m yt-spec-button-shape-next--icon-button yt-spec-button-shape-next--enable-backdrop-filter-experiment"
+    "html_classes": "yt-spec-button-shape-next yt-spec-button-shape-next--tonal yt-spec-button-shape-next--overlay-dark yt-spec-button-shape-next--size-s yt-spec-button-shape-next--icon-button yt-spec-button-shape-next--override-small-size-icon yt-spec-button-shape-next--enable-backdrop-filter-experiment"
   },
   {
     "id": 25,
     "tag": "button",
-    "text": "More actions",
+    "text": "Add to queue",
     "type": "button",
     "bbox": {
-      "x": 1398,
-      "y": 694,
-      "w": 36,
-      "h": 36
+      "x": 1154,
+      "y": 500,
+      "w": 32,
+      "h": 32
     },
     "html_id": "",
-    "html_classes": "yt-spec-button-shape-next yt-spec-button-shape-next--text yt-spec-button-shape-next--mono yt-spec-button-shape-next--size-m yt-spec-button-shape-next--icon-button yt-spec-button-shape-next--enable-backdrop-filter-experiment"
+    "html_classes": "yt-spec-button-shape-next yt-spec-button-shape-next--tonal yt-spec-button-shape-next--overlay-dark yt-spec-button-shape-next--size-s yt-spec-button-shape-next--icon-button yt-spec-button-shape-next--override-small-size-icon yt-spec-button-shape-next--enable-backdrop-filter-experiment"
   },
   {
     "id": 26,
@@ -370,7 +370,7 @@
     "type": "button",
     "bbox": {
       "x": 1398,
-      "y": 796,
+      "y": 454,
       "w": 36,
       "h": 36
     },
@@ -384,7 +384,7 @@
     "type": "button",
     "bbox": {
       "x": 1398,
-      "y": 899,
+      "y": 556,
       "w": 36,
       "h": 36
     },
@@ -393,6 +393,62 @@
   },
   {
     "id": 28,
+    "tag": "button",
+    "text": "More actions",
+    "type": "button",
+    "bbox": {
+      "x": 1398,
+      "y": 659,
+      "w": 36,
+      "h": 36
+    },
+    "html_id": "",
+    "html_classes": "yt-spec-button-shape-next yt-spec-button-shape-next--text yt-spec-button-shape-next--mono yt-spec-button-shape-next--size-m yt-spec-button-shape-next--icon-button yt-spec-button-shape-next--enable-backdrop-filter-experiment"
+  },
+  {
+    "id": 29,
+    "tag": "button",
+    "text": "More actions",
+    "type": "button",
+    "bbox": {
+      "x": 1398,
+      "y": 761,
+      "w": 36,
+      "h": 36
+    },
+    "html_id": "",
+    "html_classes": "yt-spec-button-shape-next yt-spec-button-shape-next--text yt-spec-button-shape-next--mono yt-spec-button-shape-next--size-m yt-spec-button-shape-next--icon-button yt-spec-button-shape-next--enable-backdrop-filter-experiment"
+  },
+  {
+    "id": 30,
+    "tag": "button",
+    "text": "More actions",
+    "type": "button",
+    "bbox": {
+      "x": 1398,
+      "y": 864,
+      "w": 36,
+      "h": 36
+    },
+    "html_id": "",
+    "html_classes": "yt-spec-button-shape-next yt-spec-button-shape-next--text yt-spec-button-shape-next--mono yt-spec-button-shape-next--size-m yt-spec-button-shape-next--icon-button yt-spec-button-shape-next--enable-backdrop-filter-experiment"
+  },
+  {
+    "id": 31,
+    "tag": "button",
+    "text": "No thanks",
+    "type": "button",
+    "bbox": {
+      "x": 32,
+      "y": 832,
+      "w": 202,
+      "h": 36
+    },
+    "html_id": "",
+    "html_classes": "yt-spec-button-shape-next yt-spec-button-shape-next--tonal yt-spec-button-shape-next--mono yt-spec-button-shape-next--size-m yt-spec-button-shape-next--enable-backdrop-filter-experiment"
+  },
+  {
+    "id": 32,
     "tag": "a",
     "text": "YouTube Home",
     "type": "button",
@@ -406,7 +462,7 @@
     "html_classes": "yt-simple-endpoint style-scope ytd-topbar-logo-renderer"
   },
   {
-    "id": 29,
+    "id": 33,
     "tag": "a",
     "text": "",
     "type": "button",
@@ -420,7 +476,7 @@
     "html_classes": "yt-simple-endpoint style-scope ytd-topbar-menu-button-renderer"
   },
   {
-    "id": 30,
+    "id": 34,
     "tag": "a",
     "text": "Sign in",
     "type": "button",
@@ -434,7 +490,7 @@
     "html_classes": "yt-spec-button-shape-next yt-spec-button-shape-next--outline yt-spec-button-shape-next--call-to-action yt-spec-button-shape-next--size-m yt-spec-button-shape-next--icon-leading yt-spec-button-shape-next--enable-backdrop-filter-experiment"
   },
   {
-    "id": 31,
+    "id": 35,
     "tag": "a",
     "text": "",
     "type": "button",
@@ -448,113 +504,57 @@
     "html_classes": "yt-simple-endpoint inline-block style-scope ytd-thumbnail"
   },
   {
-    "id": 32,
+    "id": 36,
     "tag": "a",
-    "text": "Learn more",
+    "text": "Previous (SHIFT+p)",
     "type": "button",
     "bbox": {
-      "x": 324,
-      "y": 345,
-      "w": 112,
-      "h": 26
+      "x": 76,
+      "y": 577,
+      "w": 52,
+      "h": 40
     },
     "html_id": "",
-    "html_classes": "ytp-error-link"
+    "html_classes": "ytp-prev-button ytp-button"
   },
   {
-    "id": 33,
+    "id": 37,
+    "tag": "a",
+    "text": "Next (SHIFT+n)",
+    "type": "button",
+    "bbox": {
+      "x": 128,
+      "y": 577,
+      "w": 52,
+      "h": 40
+    },
+    "html_id": "",
+    "html_classes": "ytp-next-button ytp-button ytp-playlist-ui"
+  },
+  {
+    "id": 38,
     "tag": "a",
     "text": "",
     "type": "button",
     "bbox": {
       "x": 16,
-      "y": 673,
-      "w": 52,
-      "h": 43
+      "y": 674,
+      "w": 44,
+      "h": 35
     },
     "html_id": "",
     "html_classes": "yt-simple-endpoint style-scope ytd-video-owner-renderer"
   },
   {
-    "id": 34,
-    "tag": "a",
-    "text": "TailRipple Media",
-    "type": "button",
-    "bbox": {
-      "x": 68,
-      "y": 674,
-      "w": 120,
-      "h": 22
-    },
-    "html_id": "",
-    "html_classes": "yt-simple-endpoint style-scope yt-formatted-string"
-  },
-  {
-    "id": 35,
-    "tag": "a",
-    "text": "MEOW STORY",
-    "type": "button",
-    "bbox": {
-      "x": 195,
-      "y": 739,
-      "w": 89,
-      "h": 20
-    },
-    "html_id": "",
-    "html_classes": "yt-simple-endpoint style-scope yt-formatted-string"
-  },
-  {
-    "id": 36,
-    "tag": "a",
-    "text": "#cryingcat",
-    "type": "button",
-    "bbox": {
-      "x": 28,
-      "y": 761,
-      "w": 66,
-      "h": 17
-    },
-    "html_id": "",
-    "html_classes": "yt-core-attributed-string__link yt-core-attributed-string__link--call-to-action-color"
-  },
-  {
-    "id": 37,
-    "tag": "a",
-    "text": "#猫",
-    "type": "button",
-    "bbox": {
-      "x": 97,
-      "y": 761,
-      "w": 23,
-      "h": 17
-    },
-    "html_id": "",
-    "html_classes": "yt-core-attributed-string__link yt-core-attributed-string__link--call-to-action-color"
-  },
-  {
-    "id": 38,
-    "tag": "a",
-    "text": "#貓咪",
-    "type": "button",
-    "bbox": {
-      "x": 124,
-      "y": 761,
-      "w": 37,
-      "h": 17
-    },
-    "html_id": "",
-    "html_classes": "yt-core-attributed-string__link yt-core-attributed-string__link--call-to-action-color"
-  },
-  {
     "id": 39,
     "tag": "a",
-    "text": "#cryingcat",
+    "text": "HUGEL and Topic",
     "type": "button",
     "bbox": {
-      "x": 28,
-      "y": 781,
-      "w": 66,
-      "h": 17
+      "x": 60,
+      "y": 681,
+      "w": 160,
+      "h": 19
     },
     "html_id": "",
     "html_classes": "yt-core-attributed-string__link yt-core-attributed-string__link--call-to-action-color"
@@ -562,83 +562,83 @@
   {
     "id": 40,
     "tag": "a",
-    "text": "#猫",
+    "text": "The concert events listed are based on the artist featured in the video that you are watching, the c",
     "type": "button",
     "bbox": {
-      "x": 97,
-      "y": 781,
-      "w": 23,
-      "h": 17
+      "x": 179,
+      "y": 849,
+      "w": 22,
+      "h": 22
     },
-    "html_id": "",
-    "html_classes": "yt-core-attributed-string__link yt-core-attributed-string__link--call-to-action-color"
+    "html_id": "info-container",
+    "html_classes": "style-scope ytd-ticket-shelf-renderer"
   },
   {
     "id": 41,
     "tag": "a",
-    "text": "#貓",
+    "text": "FEB 13",
     "type": "button",
     "bbox": {
-      "x": 124,
-      "y": 781,
-      "w": 23,
-      "h": 17
+      "x": 20,
+      "y": 885,
+      "w": 48,
+      "h": 96
     },
-    "html_id": "",
-    "html_classes": "yt-core-attributed-string__link yt-core-attributed-string__link--call-to-action-color"
+    "html_id": "calendar-avatar",
+    "html_classes": "style-scope ytd-ticket-shelf-renderer"
   },
   {
     "id": 42,
     "tag": "a",
-    "text": "#動物",
+    "text": "Nearest event · London, United Kingdom",
     "type": "button",
     "bbox": {
-      "x": 28,
-      "y": 801,
-      "w": 37,
+      "x": 84,
+      "y": 886,
+      "w": 249,
       "h": 17
     },
-    "html_id": "",
-    "html_classes": "yt-core-attributed-string__link yt-core-attributed-string__link--call-to-action-color"
+    "html_id": "nearest-with-location",
+    "html_classes": "style-scope ytd-ticket-shelf-renderer"
   },
   {
     "id": 43,
     "tag": "a",
-    "text": "#貓咪",
+    "text": "VIEW TICKETS",
     "type": "button",
     "bbox": {
-      "x": 69,
-      "y": 801,
-      "w": 37,
-      "h": 17
+      "x": 404,
+      "y": 885,
+      "w": 111,
+      "h": 22
     },
-    "html_id": "",
-    "html_classes": "yt-core-attributed-string__link yt-core-attributed-string__link--call-to-action-color"
+    "html_id": "view-tickets-link",
+    "html_classes": "style-scope ytd-ticket-shelf-renderer"
   },
   {
     "id": 44,
     "tag": "a",
-    "text": "#短片",
+    "text": "Bandsintown",
     "type": "button",
     "bbox": {
-      "x": 109,
-      "y": 801,
-      "w": 37,
-      "h": 17
+      "x": 890,
+      "y": 885,
+      "w": 100,
+      "h": 20
     },
-    "html_id": "",
-    "html_classes": "yt-core-attributed-string__link yt-core-attributed-string__link--call-to-action-color"
+    "html_id": "event-0",
+    "html_classes": "vendor style-scope ytd-ticket-shelf-renderer"
   },
   {
     "id": 45,
     "tag": "a",
-    "text": "22:35",
+    "text": "22:56",
     "type": "button",
     "bbox": {
       "x": 1022,
-      "y": 68,
+      "y": 152,
       "w": 176,
-      "h": 100
+      "h": 95
     },
     "html_id": "",
     "html_classes": "yt-lockup-view-model__content-image"
@@ -646,11 +646,11 @@
   {
     "id": 46,
     "tag": "a",
-    "text": "🐱⚡ The Kitten’s Unexpected Spider Curse! 😵🔥 | AI Cat Story 22 minutes",
+    "text": "I ADORE YOU (Lyrics) - HUGEL, Topic, Arash ft. Daecolm 22 minutes",
     "type": "button",
     "bbox": {
       "x": 1198,
-      "y": 68,
+      "y": 152,
       "w": 226,
       "h": 40
     },
@@ -660,11 +660,11 @@
   {
     "id": 47,
     "tag": "a",
-    "text": "24:57",
+    "text": "3:01",
     "type": "button",
     "bbox": {
       "x": 1022,
-      "y": 176,
+      "y": 255,
       "w": 176,
       "h": 95
     },
@@ -674,11 +674,11 @@
   {
     "id": 48,
     "tag": "a",
-    "text": "Mama Cat Rescues Two Kitten Cats from Crocodiles in the Pond 🐊🌊 24 minutes",
+    "text": "Move (feat. Camila Cabello) - Adam Port, Stryv, Malachiii, Orso (Official Visualizer) 3 minutes, 1 s",
     "type": "button",
     "bbox": {
       "x": 1198,
-      "y": 176,
+      "y": 255,
       "w": 226,
       "h": 40
     },
@@ -688,13 +688,13 @@
   {
     "id": 49,
     "tag": "a",
-    "text": "7:14",
+    "text": "3:58",
     "type": "button",
     "bbox": {
       "x": 1022,
-      "y": 279,
+      "y": 357,
       "w": 176,
-      "h": 100
+      "h": 95
     },
     "html_id": "",
     "html_classes": "yt-lockup-view-model__content-image"
@@ -702,13 +702,13 @@
   {
     "id": 50,
     "tag": "a",
-    "text": "Long Slide Game with Cow Elephant Gorilla Hippopotamus Tiger 3d Animal Game Funny 3d Animals 7 minut",
+    "text": "Troublemaker 3 minutes, 58 seconds",
     "type": "button",
     "bbox": {
       "x": 1198,
-      "y": 279,
-      "w": 226,
-      "h": 40
+      "y": 357,
+      "w": 130,
+      "h": 20
     },
     "html_id": "",
     "html_classes": "yt-lockup-metadata-view-model__title"
@@ -716,11 +716,11 @@
   {
     "id": 51,
     "tag": "a",
-    "text": "16:55",
+    "text": "",
     "type": "button",
     "bbox": {
       "x": 1022,
-      "y": 387,
+      "y": 460,
       "w": 176,
       "h": 95
     },
@@ -730,11 +730,11 @@
   {
     "id": 52,
     "tag": "a",
-    "text": "Paper Dolls Dress Up - Barbie's New Home Handmade Paper Craft - Woa Doll Channel 16 minutes",
+    "text": "Zerb - Mwaki (feat. Sofiya Nzau) [Official Audio] 3 minutes, 30 seconds",
     "type": "button",
     "bbox": {
       "x": 1198,
-      "y": 387,
+      "y": 460,
       "w": 226,
       "h": 40
     },
@@ -744,13 +744,13 @@
   {
     "id": 53,
     "tag": "a",
-    "text": "12:46",
+    "text": "3:36",
     "type": "button",
     "bbox": {
       "x": 1022,
-      "y": 489,
+      "y": 562,
       "w": 176,
-      "h": 100
+      "h": 95
     },
     "html_id": "",
     "html_classes": "yt-lockup-view-model__content-image"
@@ -758,13 +758,13 @@
   {
     "id": 54,
     "tag": "a",
-    "text": "Long Slide Game With Cow Elephant Gorilla Hippopotamus Tiger 3d Animal Game Funny 3d Animals 12 minu",
+    "text": "FloyyMenor, Cris MJ - Gata Only 3 minutes, 36 seconds",
     "type": "button",
     "bbox": {
       "x": 1198,
-      "y": 489,
-      "w": 226,
-      "h": 40
+      "y": 562,
+      "w": 224,
+      "h": 20
     },
     "html_id": "",
     "html_classes": "yt-lockup-metadata-view-model__title"
@@ -772,11 +772,11 @@
   {
     "id": 55,
     "tag": "a",
-    "text": "10:55",
+    "text": "3:15",
     "type": "button",
     "bbox": {
       "x": 1022,
-      "y": 597,
+      "y": 665,
       "w": 176,
       "h": 95
     },
@@ -786,11 +786,11 @@
   {
     "id": 56,
     "tag": "a",
-    "text": "A Magical Snowy Journey: Mama Cat and Her Kitten Ride a Pig Sled Through the Forest 🐾🌨️🐷V1 10 min",
+    "text": "Garden of Roses – Afrobeat / Afro-Soul (Official) 3 minutes, 15 seconds",
     "type": "button",
     "bbox": {
       "x": 1198,
-      "y": 597,
+      "y": 665,
       "w": 226,
       "h": 40
     },
@@ -800,11 +800,11 @@
   {
     "id": 57,
     "tag": "a",
-    "text": "22:02",
+    "text": "4:34",
     "type": "button",
     "bbox": {
       "x": 1022,
-      "y": 700,
+      "y": 767,
       "w": 176,
       "h": 95
     },
@@ -814,11 +814,11 @@
   {
     "id": 58,
     "tag": "a",
-    "text": "Mighty Little Bheem FULL EPISODES 1-4 💪 Season 1 Compilation 💪 Netflix Jr 22 minutes",
+    "text": "The Weeknd - Starboy ft. Daft Punk (Official Video) ft. Daft Punk 4 minutes, 34 seconds",
     "type": "button",
     "bbox": {
       "x": 1198,
-      "y": 700,
+      "y": 767,
       "w": 226,
       "h": 40
     },
@@ -828,11 +828,11 @@
   {
     "id": 59,
     "tag": "a",
-    "text": "23:28",
+    "text": "3:05",
     "type": "button",
     "bbox": {
       "x": 1022,
-      "y": 802,
+      "y": 870,
       "w": 176,
       "h": 95
     },
@@ -842,11 +842,11 @@
   {
     "id": 60,
     "tag": "a",
-    "text": "TOM VE JERRY | Renkli Kovalamaca | #YENİ Çizgi Film | @cartoonnetworkturkiye 23 minutes",
+    "text": "Tayna - Si Ai (Marshmello & UKAY Remix) 3 minutes, 5 seconds",
     "type": "button",
     "bbox": {
       "x": 1198,
-      "y": 802,
+      "y": 870,
       "w": 226,
       "h": 40
     },
@@ -856,16 +856,16 @@
   {
     "id": 61,
     "tag": "a",
-    "text": "Sign in",
+    "text": "Check it out",
     "type": "button",
     "bbox": {
-      "x": 526,
-      "y": 810,
-      "w": 218,
+      "x": 242,
+      "y": 832,
+      "w": 213,
       "h": 36
     },
     "html_id": "",
-    "html_classes": "yt-spec-button-shape-next yt-spec-button-shape-next--filled yt-spec-button-shape-next--mono yt-spec-button-shape-next--size-m yt-spec-button-shape-next--align-by-text yt-spec-button-shape-next--enable-backdrop-filter-experiment"
+    "html_classes": "yt-spec-button-shape-next yt-spec-button-shape-next--filled yt-spec-button-shape-next--mono yt-spec-button-shape-next--size-m yt-spec-button-shape-next--enable-backdrop-filter-experiment"
   },
   {
     "id": 62,
@@ -884,12 +884,12 @@
   {
     "id": 63,
     "tag": "div",
-    "text": "0 Minutes 44 Seconds of 27 Minutes 19 Seconds",
+    "text": "0 Minutes 2 Seconds of 3 Minutes 34 Seconds",
     "type": "button",
     "bbox": {
-      "x": 144,
+      "x": 256,
       "y": 577,
-      "w": 75,
+      "w": 67,
       "h": 40
     },
     "html_id": "",
@@ -901,8 +901,8 @@
     "text": "...more",
     "type": "button",
     "bbox": {
-      "x": 150,
-      "y": 799,
+      "x": 35,
+      "y": 793,
       "w": 44,
       "h": 20
     },
@@ -911,20 +911,6 @@
   },
   {
     "id": 65,
-    "tag": "tp-yt-paper-button",
-    "text": "Sort comments",
-    "type": "button",
-    "bbox": {
-      "x": 202,
-      "y": 855,
-      "w": 80,
-      "h": 24
-    },
-    "html_id": "label",
-    "html_classes": "dropdown-trigger style-scope yt-dropdown-menu"
-  },
-  {
-    "id": 66,
     "tag": "div",
     "text": "YouTube Video Player",
     "type": "button",
@@ -935,10 +921,10 @@
       "h": 557
     },
     "html_id": "movie_player",
-    "html_classes": "html5-video-player ytp-transparent ytp-exp-bottom-control-flexbox ytp-modern-caption ytp-exp-ppp-update ytp-livebadge-color ytp-grid-scrollable ytp-cards-teaser-dismissible ytp-hide-info-bar ytp-disable-bottom-gradient ytp-delhi-modern ytp-delhi-modern-icons ytp-delhi-horizontal-volume-controls ytp-delhi-modern-compact-controls ytp-large-width-mode ytp-fine-scrubbing-exp ytp-autonav-endscreen-cancelled-state ytp-fit-cover-video ytp-heat-map ytp-hide-fullscreen-title ytp-fullscreen-metadata-top ytp-autohide"
+    "html_classes": "html5-video-player ytp-transparent ytp-exp-bottom-control-flexbox ytp-modern-caption ytp-exp-ppp-update ytp-livebadge-color ytp-grid-scrollable ytp-cards-teaser-dismissible ytp-hide-info-bar ytp-disable-bottom-gradient ytp-delhi-modern ytp-delhi-modern-icons ytp-delhi-horizontal-volume-controls ytp-delhi-modern-compact-controls ytp-large-width-mode ytp-fine-scrubbing-exp ytp-fit-cover-video ytp-hide-fullscreen-title ytp-fullscreen-metadata-top ytp-heat-map ytp-autonav-endscreen-cancelled-state ad-created ytp-branding-shown playing-mode"
   },
   {
-    "id": 67,
+    "id": 66,
     "tag": "video",
     "text": "",
     "type": "button",
@@ -952,7 +938,7 @@
     "html_classes": "video-stream html5-main-video"
   },
   {
-    "id": 68,
+    "id": 67,
     "tag": "div",
     "text": "Seek slider",
     "type": "button",
@@ -966,17 +952,31 @@
     "html_classes": "ytp-progress-bar"
   },
   {
-    "id": 69,
-    "tag": "ytd-modal-with-title-and-button-renderer",
-    "text": "Like this video? Sign in to make your opinion count. Sign in",
+    "id": 68,
+    "tag": "tp-yt-paper-dialog",
+    "text": "Did you know... You can enjoy YouTube Music on your desktop. Listen on the web player. Terms apply. ",
     "type": "button",
     "bbox": {
-      "x": 502,
-      "y": 712,
-      "w": 266,
-      "h": 160
+      "x": 16,
+      "y": 680,
+      "w": 455,
+      "h": 204
     },
     "html_id": "",
     "html_classes": "style-scope ytd-popup-container"
+  },
+  {
+    "id": 69,
+    "tag": "yt-mealbar-promo-renderer",
+    "text": "Did you know... You can enjoy YouTube Music on your desktop. Listen on the web player. Terms apply. ",
+    "type": "button",
+    "bbox": {
+      "x": 16,
+      "y": 680,
+      "w": 455,
+      "h": 204
+    },
+    "html_id": "mealbar-promo-renderer",
+    "html_classes": "style-scope ytd-popup-container ephemeral-action-focusable-element"
   }
 ]

@@ -197,16 +197,30 @@ class HybridAutomator:
             
             print(f"✅ Found {len(elements)} interactive elements")
             
-            # STEP 2: Try System 1 (DOM + Text Agent)
-            print("\n" + "-" * 70)
-            print("🚀 STEP 2: SYSTEM 1 - DOM Text Analysis")
-            print("-" * 70)
-            print("   Strategy: Fast text-based element matching")
-            print(f"   Analyzing: {min(len(elements), 80)} elements")
+            # VISUAL TASK DETECTION: Skip System 1 if task requires vision
+            visual_keywords = ['thumbnail', 'image', 'picture', 'icon', 'logo', 'photo', 
+                               'red', 'blue', 'green', 'yellow', 'color', 'colored',
+                               'showing', 'with image of', 'looks like', 'appears']
+            task_lower = task.lower()
+            is_visual_task = any(keyword in task_lower for keyword in visual_keywords)
             
-            system1_start = time.time()
-            element_id = self.text_agent.find_element_for_task(elements, task, page_info)
-            system1_time = time.time() - system1_start
+            if is_visual_task:
+                print("\n" + "👁️ " * 23)
+                print("🎨 VISUAL TASK DETECTED - Skipping System 1, using Vision directly")
+                print("👁️ " * 23)
+                system1_time = 0
+                element_id = -1  # Force skip to System 2
+            else:
+                # STEP 2: Try System 1 (DOM + Text Agent)
+                print("\n" + "-" * 70)
+                print("🚀 STEP 2: SYSTEM 1 - DOM Text Analysis")
+                print("-" * 70)
+                print("   Strategy: Fast text-based element matching")
+                print(f"   Analyzing: {min(len(elements), 80)} elements")
+                
+                system1_start = time.time()
+                element_id = self.text_agent.find_element_for_task(elements, task, page_info)
+                system1_time = time.time() - system1_start
             
             if element_id >= 0:
                 element = elements[element_id]
@@ -231,12 +245,13 @@ class HybridAutomator:
                     'scroll_attempts': scroll_attempt
                 }
             
-            # STEP 3: System 1 failed - Activate System 2 (Vision)
-            print(f"\n⚠️  SYSTEM 1 FAILED (took {system1_time:.2f}s)")
-            print("   Reason: No matching element found via text analysis")
+            # STEP 3: System 1 failed or skipped - Activate System 2 (Vision)
+            if not is_visual_task:
+                print(f"\n⚠️  SYSTEM 1 FAILED (took {system1_time:.2f}s)")
+                print("   Reason: No matching element found via text analysis")
             
             print("\n" + "-" * 70)
-            print("🔄 STEP 3: SYSTEM 2 - Vision Fallback")
+            print("🔄 STEP 3: SYSTEM 2 - Vision Analysis")
             print("-" * 70)
             print("   Strategy: Visual analysis with SoM annotations")
             
