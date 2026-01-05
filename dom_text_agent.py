@@ -200,7 +200,7 @@ class DOMTextAgent:
     
     def _try_local(self, prompt: str, elements: List[Dict]) -> Optional[int]:
         """
-        Try local Ollama model
+        Try local Ollama model with SIMPLIFIED prompt
         
         Returns:
             Element ID or None on failure
@@ -208,14 +208,17 @@ class DOMTextAgent:
         try:
             print(f"🤖 Analyzing with {self.local_model}...")
             
-            # Query Ollama
+            # Create a SIMPLER prompt for the smaller local model
+            simplified_prompt = self._create_simplified_prompt_for_local(prompt, elements)
+            
+            # Query Ollama with simplified prompt
             response = ollama.generate(
                 model=self.local_model,
-                prompt=prompt,
+                prompt=simplified_prompt,
                 stream=False,
                 options={
-                    'temperature': 0.1,
-                    'num_predict': 150,
+                    'temperature': 0.0,  # Zero temperature for deterministic output
+                    'num_predict': 100,  # Short response
                 }
             )
             
@@ -237,6 +240,58 @@ class DOMTextAgent:
             self.stats['local_failures'] += 1
             return None
     
+    def _create_simplified_prompt_for_local(self, original_prompt: str, elements: List[Dict]) -> str:
+        """
+        Create a MUCH simpler prompt for the local 3B model.
+        
+        Strategy:
+        1. Extract keywords from the task
+        2. Pre-filter elements to only show relevant ones
+        3. Use a very short, explicit format
+        """
+        import re
+        
+        # Extract task from original prompt
+        task_match = re.search(r'TASK:\s*(.+?)(?:\n|$)', original_prompt)
+        task = task_match.group(1).strip() if task_match else "unknown"
+        
+        # Extract keywords (remove common words)
+        stop_words = {'click', 'on', 'the', 'a', 'an', 'to', 'video', 'titled', 'button', 'link'}
+        keywords = [w.lower() for w in re.split(r'\W+', task) if w.lower() not in stop_words and len(w) > 2]
+        
+        # Pre-filter elements to only show ones containing keywords (for smaller context)
+        filtered_elements = []
+        for el in elements[:50]:  # Limit to first 50
+            text_lower = (el.get('text', '') or '').lower()
+            # Check if any keyword is in the element text
+            if any(kw in text_lower for kw in keywords):
+                filtered_elements.append(el)
+        
+        # If no matches found, show first 30 elements
+        if not filtered_elements:
+            filtered_elements = elements[:30]
+        
+        # Create super simple element list
+        element_lines = []
+        for el in filtered_elements[:20]:  # Max 20 elements for the 3B model
+            text = (el.get('text', '') or '(no text)')[:50]
+            element_lines.append(f"[{el['id']}] {text}")
+        
+        # Create very simple prompt
+        simplified = f"""Find the element matching: "{task}"
+
+ELEMENTS:
+{chr(10).join(element_lines)}
+
+KEYWORDS TO FIND: {', '.join(keywords)}
+
+RULE: Pick the element whose text CONTAINS the most keywords.
+
+Output ONLY: ID: <number>
+Example: ID: 42"""
+        
+        return simplified
+
     def _create_prompt(
         self, 
         elements: List[Dict], 

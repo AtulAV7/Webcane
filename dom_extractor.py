@@ -38,7 +38,8 @@ class DOMExtractor:
                         return True
                     else:
                         print("   ♻️  Browser active, opening new page.")
-                        self.page = self.browser.new_page(viewport={'width': 1920, 'height': 1080})
+                        self.page = self.browser.new_page(no_viewport=True)
+                        self.page.set_viewport_size({'width': 1440, 'height': 900})
                         return True
             except Exception as e:
                 print(f"   ⚠️  Existing browser session invalid: {e}. Restarting...")
@@ -47,12 +48,21 @@ class DOMExtractor:
         # Start new session if none exists
         try:
             self.playwright = sync_playwright().start()
-            self.browser = self.playwright.chromium.launch(headless=headless)
             
-            # Create page with consistent viewport
-            self.page = self.browser.new_page(viewport={'width': 1920, 'height': 1080})
+            # Launch browser with maximized window
+            self.browser = self.playwright.chromium.launch(
+                headless=headless,
+                args=['--start-maximized']  # Start with maximized window
+            )
             
-            print("✅ Browser started successfully")
+            # Create page with NO viewport restriction (uses full window size)
+            # This allows the browser to use the actual window dimensions
+            self.page = self.browser.new_page(no_viewport=True)
+            
+            # Set a reasonable minimum size if no_viewport doesn't work well
+            self.page.set_viewport_size({'width': 1440, 'height': 900})
+            
+            print("✅ Browser started successfully (maximized window)")
             return True
             
         except Exception as e:

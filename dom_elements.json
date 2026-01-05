@@ -2,155 +2,981 @@
   {
     "id": 0,
     "tag": "button",
-    "text": "",
+    "text": "Guide",
     "type": "button",
     "bbox": {
-      "x": 1007,
-      "y": 10,
-      "w": 42,
-      "h": 36
+      "x": 24,
+      "y": 16,
+      "w": 24,
+      "h": 24
     },
-    "html_id": "",
-    "html_classes": "bJtikv"
+    "html_id": "button",
+    "html_classes": "style-scope yt-icon-button"
   },
   {
     "id": 1,
+    "tag": "button",
+    "text": "Clear search query",
+    "type": "button",
+    "bbox": {
+      "x": 902,
+      "y": 8,
+      "w": 40,
+      "h": 40
+    },
+    "html_id": "",
+    "html_classes": "ytSearchboxComponentClearButton"
+  },
+  {
+    "id": 2,
+    "tag": "button",
+    "text": "Search",
+    "type": "button",
+    "bbox": {
+      "x": 938,
+      "y": 8,
+      "w": 64,
+      "h": 40
+    },
+    "html_id": "",
+    "html_classes": "ytSearchboxComponentSearchButton"
+  },
+  {
+    "id": 3,
+    "tag": "button",
+    "text": "Search with your voice",
+    "type": "button",
+    "bbox": {
+      "x": 1018,
+      "y": 8,
+      "w": 40,
+      "h": 40
+    },
+    "html_id": "",
+    "html_classes": "yt-spec-button-shape-next yt-spec-button-shape-next--text yt-spec-button-shape-next--mono yt-spec-button-shape-next--size-m yt-spec-button-shape-next--icon-only-default yt-spec-button-shape-next--enable-backdrop-filter-experiment"
+  },
+  {
+    "id": 4,
+    "tag": "button",
+    "text": "Settings",
+    "type": "button",
+    "bbox": {
+      "x": 1285,
+      "y": 16,
+      "w": 24,
+      "h": 24
+    },
+    "html_id": "button",
+    "html_classes": "style-scope yt-icon-button"
+  },
+  {
+    "id": 5,
+    "tag": "button",
+    "text": "Play (k)",
+    "type": "button",
+    "bbox": {
+      "x": 28,
+      "y": 577,
+      "w": 40,
+      "h": 40
+    },
+    "html_id": "",
+    "html_classes": "ytp-play-button ytp-button"
+  },
+  {
+    "id": 6,
+    "tag": "button",
+    "text": "Mute (m)",
+    "type": "button",
+    "bbox": {
+      "x": 80,
+      "y": 577,
+      "w": 40,
+      "h": 40
+    },
+    "html_id": "",
+    "html_classes": "ytp-volume-icon ytp-button"
+  },
+  {
+    "id": 7,
+    "tag": "button",
+    "text": "Auto-play is on",
+    "type": "button",
+    "bbox": {
+      "x": 750,
+      "y": 577,
+      "w": 48,
+      "h": 40
+    },
+    "html_id": "",
+    "html_classes": "ytp-button ytp-autonav-toggle"
+  },
+  {
+    "id": 8,
+    "tag": "button",
+    "text": "Subtitles/closed captions unavailable",
+    "type": "button",
+    "bbox": {
+      "x": 798,
+      "y": 577,
+      "w": 48,
+      "h": 40
+    },
+    "html_id": "",
+    "html_classes": "ytp-subtitles-button ytp-button"
+  },
+  {
+    "id": 9,
+    "tag": "button",
+    "text": "Settings",
+    "type": "button",
+    "bbox": {
+      "x": 846,
+      "y": 577,
+      "w": 48,
+      "h": 40
+    },
+    "html_id": "",
+    "html_classes": "ytp-button ytp-settings-button"
+  },
+  {
+    "id": 10,
+    "tag": "button",
+    "text": "Cinema mode (t)",
+    "type": "button",
+    "bbox": {
+      "x": 894,
+      "y": 577,
+      "w": 48,
+      "h": 40
+    },
+    "html_id": "",
+    "html_classes": "ytp-size-button ytp-button"
+  },
+  {
+    "id": 11,
+    "tag": "button",
+    "text": "Full screen (f)",
+    "type": "button",
+    "bbox": {
+      "x": 942,
+      "y": 577,
+      "w": 48,
+      "h": 40
+    },
+    "html_id": "",
+    "html_classes": "ytp-fullscreen-button ytp-button"
+  },
+  {
+    "id": 12,
+    "tag": "button",
+    "text": "Subscribe to TailRipple Media.",
+    "type": "button",
+    "bbox": {
+      "x": 228,
+      "y": 676,
+      "w": 95,
+      "h": 36
+    },
+    "html_id": "",
+    "html_classes": "yt-spec-button-shape-next yt-spec-button-shape-next--filled yt-spec-button-shape-next--mono yt-spec-button-shape-next--size-m yt-spec-button-shape-next--enable-backdrop-filter-experiment"
+  },
+  {
+    "id": 13,
+    "tag": "button",
+    "text": "like this video along with 119,161 other people",
+    "type": "button",
+    "bbox": {
+      "x": 502,
+      "y": 676,
+      "w": 87,
+      "h": 36
+    },
+    "html_id": "",
+    "html_classes": "yt-spec-button-shape-next yt-spec-button-shape-next--tonal yt-spec-button-shape-next--mono yt-spec-button-shape-next--size-m yt-spec-button-shape-next--icon-leading yt-spec-button-shape-next--segmented-start yt-spec-button-shape-next--enable-backdrop-filter-experiment"
+  },
+  {
+    "id": 14,
+    "tag": "button",
+    "text": "Dislike this video",
+    "type": "button",
+    "bbox": {
+      "x": 589,
+      "y": 676,
+      "w": 52,
+      "h": 36
+    },
+    "html_id": "",
+    "html_classes": "yt-spec-button-shape-next yt-spec-button-shape-next--tonal yt-spec-button-shape-next--mono yt-spec-button-shape-next--size-m yt-spec-button-shape-next--icon-button yt-spec-button-shape-next--segmented-end yt-spec-button-shape-next--enable-backdrop-filter-experiment"
+  },
+  {
+    "id": 15,
+    "tag": "button",
+    "text": "Share",
+    "type": "button",
+    "bbox": {
+      "x": 649,
+      "y": 676,
+      "w": 92,
+      "h": 36
+    },
+    "html_id": "",
+    "html_classes": "yt-spec-button-shape-next yt-spec-button-shape-next--tonal yt-spec-button-shape-next--mono yt-spec-button-shape-next--size-m yt-spec-button-shape-next--icon-leading yt-spec-button-shape-next--enable-backdrop-filter-experiment"
+  },
+  {
+    "id": 16,
+    "tag": "button",
+    "text": "Download",
+    "type": "button",
+    "bbox": {
+      "x": 749,
+      "y": 676,
+      "w": 118,
+      "h": 36
+    },
+    "html_id": "",
+    "html_classes": "yt-spec-button-shape-next yt-spec-button-shape-next--tonal yt-spec-button-shape-next--mono yt-spec-button-shape-next--size-m yt-spec-button-shape-next--icon-leading yt-spec-button-shape-next--enable-backdrop-filter-experiment"
+  },
+  {
+    "id": 17,
+    "tag": "button",
+    "text": "Save to playlist",
+    "type": "button",
+    "bbox": {
+      "x": 876,
+      "y": 676,
+      "w": 86,
+      "h": 36
+    },
+    "html_id": "",
+    "html_classes": "yt-spec-button-shape-next yt-spec-button-shape-next--tonal yt-spec-button-shape-next--mono yt-spec-button-shape-next--size-m yt-spec-button-shape-next--icon-leading yt-spec-button-shape-next--enable-backdrop-filter-experiment"
+  },
+  {
+    "id": 18,
+    "tag": "button",
+    "text": "More actions",
+    "type": "button",
+    "bbox": {
+      "x": 970,
+      "y": 676,
+      "w": 36,
+      "h": 36
+    },
+    "html_id": "",
+    "html_classes": "yt-spec-button-shape-next yt-spec-button-shape-next--tonal yt-spec-button-shape-next--mono yt-spec-button-shape-next--size-m yt-spec-button-shape-next--icon-button yt-spec-button-shape-next--enable-backdrop-filter-experiment"
+  },
+  {
+    "id": 19,
+    "tag": "button",
+    "text": "More actions",
+    "type": "button",
+    "bbox": {
+      "x": 1398,
+      "y": 62,
+      "w": 36,
+      "h": 36
+    },
+    "html_id": "",
+    "html_classes": "yt-spec-button-shape-next yt-spec-button-shape-next--text yt-spec-button-shape-next--mono yt-spec-button-shape-next--size-m yt-spec-button-shape-next--icon-button yt-spec-button-shape-next--enable-backdrop-filter-experiment"
+  },
+  {
+    "id": 20,
+    "tag": "button",
+    "text": "More actions",
+    "type": "button",
+    "bbox": {
+      "x": 1398,
+      "y": 170,
+      "w": 36,
+      "h": 36
+    },
+    "html_id": "",
+    "html_classes": "yt-spec-button-shape-next yt-spec-button-shape-next--text yt-spec-button-shape-next--mono yt-spec-button-shape-next--size-m yt-spec-button-shape-next--icon-button yt-spec-button-shape-next--enable-backdrop-filter-experiment"
+  },
+  {
+    "id": 21,
+    "tag": "button",
+    "text": "More actions",
+    "type": "button",
+    "bbox": {
+      "x": 1398,
+      "y": 273,
+      "w": 36,
+      "h": 36
+    },
+    "html_id": "",
+    "html_classes": "yt-spec-button-shape-next yt-spec-button-shape-next--text yt-spec-button-shape-next--mono yt-spec-button-shape-next--size-m yt-spec-button-shape-next--icon-button yt-spec-button-shape-next--enable-backdrop-filter-experiment"
+  },
+  {
+    "id": 22,
+    "tag": "button",
+    "text": "More actions",
+    "type": "button",
+    "bbox": {
+      "x": 1398,
+      "y": 381,
+      "w": 36,
+      "h": 36
+    },
+    "html_id": "",
+    "html_classes": "yt-spec-button-shape-next yt-spec-button-shape-next--text yt-spec-button-shape-next--mono yt-spec-button-shape-next--size-m yt-spec-button-shape-next--icon-button yt-spec-button-shape-next--enable-backdrop-filter-experiment"
+  },
+  {
+    "id": 23,
+    "tag": "button",
+    "text": "More actions",
+    "type": "button",
+    "bbox": {
+      "x": 1398,
+      "y": 483,
+      "w": 36,
+      "h": 36
+    },
+    "html_id": "",
+    "html_classes": "yt-spec-button-shape-next yt-spec-button-shape-next--text yt-spec-button-shape-next--mono yt-spec-button-shape-next--size-m yt-spec-button-shape-next--icon-button yt-spec-button-shape-next--enable-backdrop-filter-experiment"
+  },
+  {
+    "id": 24,
+    "tag": "button",
+    "text": "More actions",
+    "type": "button",
+    "bbox": {
+      "x": 1398,
+      "y": 591,
+      "w": 36,
+      "h": 36
+    },
+    "html_id": "",
+    "html_classes": "yt-spec-button-shape-next yt-spec-button-shape-next--text yt-spec-button-shape-next--mono yt-spec-button-shape-next--size-m yt-spec-button-shape-next--icon-button yt-spec-button-shape-next--enable-backdrop-filter-experiment"
+  },
+  {
+    "id": 25,
+    "tag": "button",
+    "text": "More actions",
+    "type": "button",
+    "bbox": {
+      "x": 1398,
+      "y": 694,
+      "w": 36,
+      "h": 36
+    },
+    "html_id": "",
+    "html_classes": "yt-spec-button-shape-next yt-spec-button-shape-next--text yt-spec-button-shape-next--mono yt-spec-button-shape-next--size-m yt-spec-button-shape-next--icon-button yt-spec-button-shape-next--enable-backdrop-filter-experiment"
+  },
+  {
+    "id": 26,
+    "tag": "button",
+    "text": "More actions",
+    "type": "button",
+    "bbox": {
+      "x": 1398,
+      "y": 796,
+      "w": 36,
+      "h": 36
+    },
+    "html_id": "",
+    "html_classes": "yt-spec-button-shape-next yt-spec-button-shape-next--text yt-spec-button-shape-next--mono yt-spec-button-shape-next--size-m yt-spec-button-shape-next--icon-button yt-spec-button-shape-next--enable-backdrop-filter-experiment"
+  },
+  {
+    "id": 27,
+    "tag": "button",
+    "text": "More actions",
+    "type": "button",
+    "bbox": {
+      "x": 1398,
+      "y": 899,
+      "w": 36,
+      "h": 36
+    },
+    "html_id": "",
+    "html_classes": "yt-spec-button-shape-next yt-spec-button-shape-next--text yt-spec-button-shape-next--mono yt-spec-button-shape-next--size-m yt-spec-button-shape-next--icon-button yt-spec-button-shape-next--enable-backdrop-filter-experiment"
+  },
+  {
+    "id": 28,
+    "tag": "a",
+    "text": "YouTube Home",
+    "type": "button",
+    "bbox": {
+      "x": 56,
+      "y": 0,
+      "w": 123,
+      "h": 56
+    },
+    "html_id": "logo",
+    "html_classes": "yt-simple-endpoint style-scope ytd-topbar-logo-renderer"
+  },
+  {
+    "id": 29,
     "tag": "a",
     "text": "",
     "type": "button",
     "bbox": {
-      "x": 398,
-      "y": 11,
-      "w": 75,
-      "h": 20
+      "x": 1277,
+      "y": 8,
+      "w": 40,
+      "h": 40
     },
     "html_id": "",
-    "html_classes": ""
+    "html_classes": "yt-simple-endpoint style-scope ytd-topbar-menu-button-renderer"
   },
   {
-    "id": 2,
+    "id": 30,
     "tag": "a",
-    "text": "Explore Plus",
+    "text": "Sign in",
     "type": "button",
     "bbox": {
-      "x": 398,
-      "y": 30,
-      "w": 75,
-      "h": 15
-    },
-    "html_id": "",
-    "html_classes": "p8iyLE"
-  },
-  {
-    "id": 3,
-    "tag": "a",
-    "text": "Become a Seller",
-    "type": "button",
-    "bbox": {
-      "x": 1249,
-      "y": 0,
-      "w": 120,
-      "h": 56
-    },
-    "html_id": "",
-    "html_classes": "DDNGCa"
-  },
-  {
-    "id": 4,
-    "tag": "a",
-    "text": "1 Cart",
-    "type": "button",
-    "bbox": {
-      "x": 1500,
-      "y": 0,
-      "w": 64,
-      "h": 56
-    },
-    "html_id": "",
-    "html_classes": "WGWdFn"
-  },
-  {
-    "id": 5,
-    "tag": "a",
-    "text": "Add to Compare SAMSUNG MB-MC128SA/IN EVO Plus 128 GB MicroSDXC Class 10 160 MB/s Memory Card Compati",
-    "type": "button",
-    "bbox": {
-      "x": 432,
-      "y": -109,
-      "w": 1360,
-      "h": 231
-    },
-    "html_id": "",
-    "html_classes": "k7wcnx"
-  },
-  {
-    "id": 6,
-    "tag": "a",
-    "text": "Bestseller Add to Compare Samsung Galaxy S24 FE 5G (Graphite, 128 GB) 4.572,275 Ratings & 4,611 Revi",
-    "type": "button",
-    "bbox": {
-      "x": 432,
-      "y": 178,
-      "w": 1360,
-      "h": 231
-    },
-    "html_id": "",
-    "html_classes": "k7wcnx"
-  },
-  {
-    "id": 7,
-    "tag": "a",
-    "text": "Add to Compare Samsung Galaxy Fit3 | AMOLED Display & Aluminium Body | Upto 13Day Battery | 5ATM & I",
-    "type": "button",
-    "bbox": {
-      "x": 432,
-      "y": 464,
-      "w": 1360,
-      "h": 231
-    },
-    "html_id": "",
-    "html_classes": "k7wcnx"
-  },
-  {
-    "id": 8,
-    "tag": "a",
-    "text": "Bestseller Add to Compare Samsung Galaxy F07 (Green, 64 GB) 4.22,479 Ratings & 125 Reviews 4 GB RAM ",
-    "type": "button",
-    "bbox": {
-      "x": 432,
-      "y": 750,
-      "w": 1360,
-      "h": 231
-    },
-    "html_id": "",
-    "html_classes": "k7wcnx"
-  },
-  {
-    "id": 9,
-    "tag": "a",
-    "text": "Samsung 25 W GaN 3 A Wall Charger for Mobile 4.51,58,211 Ratings & 7,702 Reviews Wall Charger Suitab",
-    "type": "button",
-    "bbox": {
-      "x": 432,
-      "y": 1037,
-      "w": 1360,
-      "h": 216
-    },
-    "html_id": "",
-    "html_classes": "k7wcnx"
-  },
-  {
-    "id": 10,
-    "tag": "input",
-    "text": "Search for products, brands and more",
-    "type": "text",
-    "bbox": {
-      "x": 485,
+      "x": 1325,
       "y": 10,
-      "w": 522,
+      "w": 99,
       "h": 36
     },
     "html_id": "",
-    "html_classes": "Vy9RSP"
+    "html_classes": "yt-spec-button-shape-next yt-spec-button-shape-next--outline yt-spec-button-shape-next--call-to-action yt-spec-button-shape-next--size-m yt-spec-button-shape-next--icon-leading yt-spec-button-shape-next--enable-backdrop-filter-experiment"
+  },
+  {
+    "id": 31,
+    "tag": "a",
+    "text": "",
+    "type": "button",
+    "bbox": {
+      "x": 16,
+      "y": 68,
+      "w": 990,
+      "h": 557
+    },
+    "html_id": "thumbnail",
+    "html_classes": "yt-simple-endpoint inline-block style-scope ytd-thumbnail"
+  },
+  {
+    "id": 32,
+    "tag": "a",
+    "text": "Learn more",
+    "type": "button",
+    "bbox": {
+      "x": 324,
+      "y": 345,
+      "w": 112,
+      "h": 26
+    },
+    "html_id": "",
+    "html_classes": "ytp-error-link"
+  },
+  {
+    "id": 33,
+    "tag": "a",
+    "text": "",
+    "type": "button",
+    "bbox": {
+      "x": 16,
+      "y": 673,
+      "w": 52,
+      "h": 43
+    },
+    "html_id": "",
+    "html_classes": "yt-simple-endpoint style-scope ytd-video-owner-renderer"
+  },
+  {
+    "id": 34,
+    "tag": "a",
+    "text": "TailRipple Media",
+    "type": "button",
+    "bbox": {
+      "x": 68,
+      "y": 674,
+      "w": 120,
+      "h": 22
+    },
+    "html_id": "",
+    "html_classes": "yt-simple-endpoint style-scope yt-formatted-string"
+  },
+  {
+    "id": 35,
+    "tag": "a",
+    "text": "MEOW STORY",
+    "type": "button",
+    "bbox": {
+      "x": 195,
+      "y": 739,
+      "w": 89,
+      "h": 20
+    },
+    "html_id": "",
+    "html_classes": "yt-simple-endpoint style-scope yt-formatted-string"
+  },
+  {
+    "id": 36,
+    "tag": "a",
+    "text": "#cryingcat",
+    "type": "button",
+    "bbox": {
+      "x": 28,
+      "y": 761,
+      "w": 66,
+      "h": 17
+    },
+    "html_id": "",
+    "html_classes": "yt-core-attributed-string__link yt-core-attributed-string__link--call-to-action-color"
+  },
+  {
+    "id": 37,
+    "tag": "a",
+    "text": "#猫",
+    "type": "button",
+    "bbox": {
+      "x": 97,
+      "y": 761,
+      "w": 23,
+      "h": 17
+    },
+    "html_id": "",
+    "html_classes": "yt-core-attributed-string__link yt-core-attributed-string__link--call-to-action-color"
+  },
+  {
+    "id": 38,
+    "tag": "a",
+    "text": "#貓咪",
+    "type": "button",
+    "bbox": {
+      "x": 124,
+      "y": 761,
+      "w": 37,
+      "h": 17
+    },
+    "html_id": "",
+    "html_classes": "yt-core-attributed-string__link yt-core-attributed-string__link--call-to-action-color"
+  },
+  {
+    "id": 39,
+    "tag": "a",
+    "text": "#cryingcat",
+    "type": "button",
+    "bbox": {
+      "x": 28,
+      "y": 781,
+      "w": 66,
+      "h": 17
+    },
+    "html_id": "",
+    "html_classes": "yt-core-attributed-string__link yt-core-attributed-string__link--call-to-action-color"
+  },
+  {
+    "id": 40,
+    "tag": "a",
+    "text": "#猫",
+    "type": "button",
+    "bbox": {
+      "x": 97,
+      "y": 781,
+      "w": 23,
+      "h": 17
+    },
+    "html_id": "",
+    "html_classes": "yt-core-attributed-string__link yt-core-attributed-string__link--call-to-action-color"
+  },
+  {
+    "id": 41,
+    "tag": "a",
+    "text": "#貓",
+    "type": "button",
+    "bbox": {
+      "x": 124,
+      "y": 781,
+      "w": 23,
+      "h": 17
+    },
+    "html_id": "",
+    "html_classes": "yt-core-attributed-string__link yt-core-attributed-string__link--call-to-action-color"
+  },
+  {
+    "id": 42,
+    "tag": "a",
+    "text": "#動物",
+    "type": "button",
+    "bbox": {
+      "x": 28,
+      "y": 801,
+      "w": 37,
+      "h": 17
+    },
+    "html_id": "",
+    "html_classes": "yt-core-attributed-string__link yt-core-attributed-string__link--call-to-action-color"
+  },
+  {
+    "id": 43,
+    "tag": "a",
+    "text": "#貓咪",
+    "type": "button",
+    "bbox": {
+      "x": 69,
+      "y": 801,
+      "w": 37,
+      "h": 17
+    },
+    "html_id": "",
+    "html_classes": "yt-core-attributed-string__link yt-core-attributed-string__link--call-to-action-color"
+  },
+  {
+    "id": 44,
+    "tag": "a",
+    "text": "#短片",
+    "type": "button",
+    "bbox": {
+      "x": 109,
+      "y": 801,
+      "w": 37,
+      "h": 17
+    },
+    "html_id": "",
+    "html_classes": "yt-core-attributed-string__link yt-core-attributed-string__link--call-to-action-color"
+  },
+  {
+    "id": 45,
+    "tag": "a",
+    "text": "22:35",
+    "type": "button",
+    "bbox": {
+      "x": 1022,
+      "y": 68,
+      "w": 176,
+      "h": 100
+    },
+    "html_id": "",
+    "html_classes": "yt-lockup-view-model__content-image"
+  },
+  {
+    "id": 46,
+    "tag": "a",
+    "text": "🐱⚡ The Kitten’s Unexpected Spider Curse! 😵🔥 | AI Cat Story 22 minutes",
+    "type": "button",
+    "bbox": {
+      "x": 1198,
+      "y": 68,
+      "w": 226,
+      "h": 40
+    },
+    "html_id": "",
+    "html_classes": "yt-lockup-metadata-view-model__title"
+  },
+  {
+    "id": 47,
+    "tag": "a",
+    "text": "24:57",
+    "type": "button",
+    "bbox": {
+      "x": 1022,
+      "y": 176,
+      "w": 176,
+      "h": 95
+    },
+    "html_id": "",
+    "html_classes": "yt-lockup-view-model__content-image"
+  },
+  {
+    "id": 48,
+    "tag": "a",
+    "text": "Mama Cat Rescues Two Kitten Cats from Crocodiles in the Pond 🐊🌊 24 minutes",
+    "type": "button",
+    "bbox": {
+      "x": 1198,
+      "y": 176,
+      "w": 226,
+      "h": 40
+    },
+    "html_id": "",
+    "html_classes": "yt-lockup-metadata-view-model__title"
+  },
+  {
+    "id": 49,
+    "tag": "a",
+    "text": "7:14",
+    "type": "button",
+    "bbox": {
+      "x": 1022,
+      "y": 279,
+      "w": 176,
+      "h": 100
+    },
+    "html_id": "",
+    "html_classes": "yt-lockup-view-model__content-image"
+  },
+  {
+    "id": 50,
+    "tag": "a",
+    "text": "Long Slide Game with Cow Elephant Gorilla Hippopotamus Tiger 3d Animal Game Funny 3d Animals 7 minut",
+    "type": "button",
+    "bbox": {
+      "x": 1198,
+      "y": 279,
+      "w": 226,
+      "h": 40
+    },
+    "html_id": "",
+    "html_classes": "yt-lockup-metadata-view-model__title"
+  },
+  {
+    "id": 51,
+    "tag": "a",
+    "text": "16:55",
+    "type": "button",
+    "bbox": {
+      "x": 1022,
+      "y": 387,
+      "w": 176,
+      "h": 95
+    },
+    "html_id": "",
+    "html_classes": "yt-lockup-view-model__content-image"
+  },
+  {
+    "id": 52,
+    "tag": "a",
+    "text": "Paper Dolls Dress Up - Barbie's New Home Handmade Paper Craft - Woa Doll Channel 16 minutes",
+    "type": "button",
+    "bbox": {
+      "x": 1198,
+      "y": 387,
+      "w": 226,
+      "h": 40
+    },
+    "html_id": "",
+    "html_classes": "yt-lockup-metadata-view-model__title"
+  },
+  {
+    "id": 53,
+    "tag": "a",
+    "text": "12:46",
+    "type": "button",
+    "bbox": {
+      "x": 1022,
+      "y": 489,
+      "w": 176,
+      "h": 100
+    },
+    "html_id": "",
+    "html_classes": "yt-lockup-view-model__content-image"
+  },
+  {
+    "id": 54,
+    "tag": "a",
+    "text": "Long Slide Game With Cow Elephant Gorilla Hippopotamus Tiger 3d Animal Game Funny 3d Animals 12 minu",
+    "type": "button",
+    "bbox": {
+      "x": 1198,
+      "y": 489,
+      "w": 226,
+      "h": 40
+    },
+    "html_id": "",
+    "html_classes": "yt-lockup-metadata-view-model__title"
+  },
+  {
+    "id": 55,
+    "tag": "a",
+    "text": "10:55",
+    "type": "button",
+    "bbox": {
+      "x": 1022,
+      "y": 597,
+      "w": 176,
+      "h": 95
+    },
+    "html_id": "",
+    "html_classes": "yt-lockup-view-model__content-image"
+  },
+  {
+    "id": 56,
+    "tag": "a",
+    "text": "A Magical Snowy Journey: Mama Cat and Her Kitten Ride a Pig Sled Through the Forest 🐾🌨️🐷V1 10 min",
+    "type": "button",
+    "bbox": {
+      "x": 1198,
+      "y": 597,
+      "w": 226,
+      "h": 40
+    },
+    "html_id": "",
+    "html_classes": "yt-lockup-metadata-view-model__title"
+  },
+  {
+    "id": 57,
+    "tag": "a",
+    "text": "22:02",
+    "type": "button",
+    "bbox": {
+      "x": 1022,
+      "y": 700,
+      "w": 176,
+      "h": 95
+    },
+    "html_id": "",
+    "html_classes": "yt-lockup-view-model__content-image"
+  },
+  {
+    "id": 58,
+    "tag": "a",
+    "text": "Mighty Little Bheem FULL EPISODES 1-4 💪 Season 1 Compilation 💪 Netflix Jr 22 minutes",
+    "type": "button",
+    "bbox": {
+      "x": 1198,
+      "y": 700,
+      "w": 226,
+      "h": 40
+    },
+    "html_id": "",
+    "html_classes": "yt-lockup-metadata-view-model__title"
+  },
+  {
+    "id": 59,
+    "tag": "a",
+    "text": "23:28",
+    "type": "button",
+    "bbox": {
+      "x": 1022,
+      "y": 802,
+      "w": 176,
+      "h": 95
+    },
+    "html_id": "",
+    "html_classes": "yt-lockup-view-model__content-image"
+  },
+  {
+    "id": 60,
+    "tag": "a",
+    "text": "TOM VE JERRY | Renkli Kovalamaca | #YENİ Çizgi Film | @cartoonnetworkturkiye 23 minutes",
+    "type": "button",
+    "bbox": {
+      "x": 1198,
+      "y": 802,
+      "w": 226,
+      "h": 40
+    },
+    "html_id": "",
+    "html_classes": "yt-lockup-metadata-view-model__title"
+  },
+  {
+    "id": 61,
+    "tag": "a",
+    "text": "Sign in",
+    "type": "button",
+    "bbox": {
+      "x": 526,
+      "y": 810,
+      "w": 218,
+      "h": 36
+    },
+    "html_id": "",
+    "html_classes": "yt-spec-button-shape-next yt-spec-button-shape-next--filled yt-spec-button-shape-next--mono yt-spec-button-shape-next--size-m yt-spec-button-shape-next--align-by-text yt-spec-button-shape-next--enable-backdrop-filter-experiment"
+  },
+  {
+    "id": 62,
+    "tag": "input",
+    "text": "Search",
+    "type": "text",
+    "bbox": {
+      "x": 419,
+      "y": 16,
+      "w": 491,
+      "h": 24
+    },
+    "html_id": "",
+    "html_classes": "ytSearchboxComponentInput yt-searchbox-input title"
+  },
+  {
+    "id": 63,
+    "tag": "div",
+    "text": "0 Minutes 44 Seconds of 27 Minutes 19 Seconds",
+    "type": "button",
+    "bbox": {
+      "x": 144,
+      "y": 577,
+      "w": 75,
+      "h": 40
+    },
+    "html_id": "",
+    "html_classes": "ytp-time-contents"
+  },
+  {
+    "id": 64,
+    "tag": "tp-yt-paper-button",
+    "text": "...more",
+    "type": "button",
+    "bbox": {
+      "x": 150,
+      "y": 799,
+      "w": 44,
+      "h": 20
+    },
+    "html_id": "expand",
+    "html_classes": "button style-scope ytd-text-inline-expander"
+  },
+  {
+    "id": 65,
+    "tag": "tp-yt-paper-button",
+    "text": "Sort comments",
+    "type": "button",
+    "bbox": {
+      "x": 202,
+      "y": 855,
+      "w": 80,
+      "h": 24
+    },
+    "html_id": "label",
+    "html_classes": "dropdown-trigger style-scope yt-dropdown-menu"
+  },
+  {
+    "id": 66,
+    "tag": "div",
+    "text": "YouTube Video Player",
+    "type": "button",
+    "bbox": {
+      "x": 16,
+      "y": 68,
+      "w": 990,
+      "h": 557
+    },
+    "html_id": "movie_player",
+    "html_classes": "html5-video-player ytp-transparent ytp-exp-bottom-control-flexbox ytp-modern-caption ytp-exp-ppp-update ytp-livebadge-color ytp-grid-scrollable ytp-cards-teaser-dismissible ytp-hide-info-bar ytp-disable-bottom-gradient ytp-delhi-modern ytp-delhi-modern-icons ytp-delhi-horizontal-volume-controls ytp-delhi-modern-compact-controls ytp-large-width-mode ytp-fine-scrubbing-exp ytp-autonav-endscreen-cancelled-state ytp-fit-cover-video ytp-heat-map ytp-hide-fullscreen-title ytp-fullscreen-metadata-top ytp-autohide"
+  },
+  {
+    "id": 67,
+    "tag": "video",
+    "text": "",
+    "type": "button",
+    "bbox": {
+      "x": 16,
+      "y": 68,
+      "w": 990,
+      "h": 557
+    },
+    "html_id": "",
+    "html_classes": "video-stream html5-main-video"
+  },
+  {
+    "id": 68,
+    "tag": "div",
+    "text": "Seek slider",
+    "type": "button",
+    "bbox": {
+      "x": 28,
+      "y": 563,
+      "w": 966,
+      "h": 6
+    },
+    "html_id": "",
+    "html_classes": "ytp-progress-bar"
+  },
+  {
+    "id": 69,
+    "tag": "ytd-modal-with-title-and-button-renderer",
+    "text": "Like this video? Sign in to make your opinion count. Sign in",
+    "type": "button",
+    "bbox": {
+      "x": 502,
+      "y": 712,
+      "w": 266,
+      "h": 160
+    },
+    "html_id": "",
+    "html_classes": "style-scope ytd-popup-container"
   }
 ]

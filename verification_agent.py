@@ -309,36 +309,52 @@ class VerificationAgent:
 
     def verify_element_interaction(self, action: Dict, changes: Dict) -> Optional[Dict]:
         """Verify element interaction (click, etc.)"""
-        # Strong indicators of success
-        if changes['url_changed']:
-            return {
-                'success': True,
-                'confidence': 0.9,
-                'reason': f"URL changed to {changes['new_url']}",
-                'retry_recommended': False
-            }
-        
-        if changes['title_changed']:
-            return {
-                'success': True,
-                'confidence': 0.85,
-                'reason': f"Page title changed to '{changes['new_title']}'",
-                'retry_recommended': False
-            }
-        
-        # New elements appeared
-        if changes['element_count_change'] > 5:
-            return {
-                'success': True,
-                'confidence': 0.8,
-                'reason': f"{changes['element_count_change']} new elements appeared",
-                'retry_recommended': False
-            }
-        
-        # Nothing changed - likely failed, but returning None lets LLM confirm
-        if changes['element_count_change'] == 0 and not changes['url_changed']:
-             return None # Let LLM decide if "No Change" is a failure for this specific target
-        
+        action_type = action.get('action', '').lower()
+        target = action.get('target', '').lower()
+
+        # FIND_AND_CLICK:
+        if action_type == 'find_and_click':
+            # 1. URL Changed? -> High confidence success
+            if changes['url_changed']:
+                # Specific check for Video clicks (YouTube)
+                if 'video' in target or 'watch' in changes['new_url']:
+                    if 'watch' in changes['new_url'] or 'shorts' in changes['new_url']:
+                        return {
+                            'success': True,
+                            'confidence': 1.0,  # URL confirms video loaded
+                            'reason': f'URL changed to video page ({changes["new_url"]})',
+                            'retry_recommended': False
+                        }
+                
+                return {
+                    'success': True,
+                    'confidence': 0.9,
+                    'reason': f'Page navigated to {changes["new_url"]}',
+                    'retry_recommended': False
+                }
+            
+            # 2. significant element count change (dropdown opened, modal appeared)
+            if changes['element_count_change'] > 5:
+                return {
+                    'success': True,
+                    'confidence': 0.7,
+                    'reason': 'Content appeared on page',
+                    'retry_recommended': False
+                }
+            
+            # 3. Title Changed?
+            if changes['title_changed']:
+                return {
+                    'success': True,
+                    'confidence': 0.8,
+                    'reason': f'Page title changed to "{changes["new_title"]}"',
+                    'retry_recommended': False
+                }
+            
+            # No obvious changes - let LLM decide (could be a "Like" button, Play/Pause)
+            return None
+
+        # If not 'find_and_click' or no heuristic matched, return None
         return None
 
     def _verify_with_gemini(self, action: Dict, changes: Dict) -> Optional[Dict]:
